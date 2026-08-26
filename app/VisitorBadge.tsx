@@ -142,7 +142,7 @@ export default function VisitorBadge({ className = '', initiallyExpanded = false
     <button
       type="button"
       onClick={() => setExpanded(false)}
-      className={`flex min-h-9 w-full items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-xs text-slate-600 shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 sm:w-auto sm:justify-start ${className}`}
+      className={`flex min-h-9 w-full items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-xs text-slate-600 shadow-sm dark:border-neutral-700 dark:bg-black dark:text-slate-300 sm:w-auto sm:justify-start ${className}`}
       aria-expanded="true"
       aria-label={zh ? '收起访客信息' : 'Collapse visitor details'}
     >

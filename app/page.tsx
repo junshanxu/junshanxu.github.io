@@ -141,7 +141,7 @@ const TECH_GROUPS: TechGroup[] = [
 
 const TechBadge = ({ name, icon, invertDark }: TechItem) => (
   <li className="group/list-item">
-    <span className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 transition-colors duration-200 hover:border-blue-200 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-blue-800 dark:hover:bg-slate-800/80">
+    <span className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 transition-colors duration-200 hover:border-blue-200 hover:bg-slate-50 dark:border-neutral-700 dark:bg-[#0a0a0a] dark:hover:border-blue-800 dark:hover:bg-[#171717]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={icon}
@@ -230,7 +230,7 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
   <section className="animate-fade-in-up delay-400">
     <h2 className="mb-4 border-l-[3px] border-blue-500 pl-3 text-xl font-bold text-slate-800 dark:text-slate-100">{zh ? '教育经历' : 'Education'}</h2>
     <div className="divide-y divide-slate-200 dark:divide-slate-700">
-      <div className="rounded-lg border border-slate-200 bg-white px-4 py-4 shadow-sm dark:border-slate-700 dark:bg-gray-900 sm:px-5">
+      <div className="rounded-lg border border-slate-200 bg-white px-4 py-4 shadow-sm dark:border-neutral-800 dark:bg-black sm:px-5">
         <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <span className="inline-flex h-12 w-12 shrink-0 items-center overflow-hidden rounded-full">
@@ -270,13 +270,13 @@ export default function Resume() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}
       />
       <ScrollProgress />
-      <div className="min-h-screen bg-slate-50 px-3 py-4 font-sans text-gray-800 transition-colors duration-300 dark:bg-slate-950 dark:text-gray-100 sm:px-6 sm:py-8 lg:px-8">
+      <div className="min-h-screen bg-slate-50 px-3 py-4 font-sans text-gray-800 transition-colors duration-300 dark:bg-black dark:text-gray-100 sm:px-6 sm:py-8 lg:px-8">
         <div
           lang={language === 'en' ? 'en' : 'zh-CN'}
-          className="resume-card relative mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-200 transition-colors duration-300 dark:bg-gray-900 dark:ring-slate-800"
+          className="resume-card relative mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-200 transition-colors duration-300 dark:bg-black dark:ring-neutral-800"
         >
           {/* === 头部信息 === */}
-          <header className="border-b border-slate-100 bg-white p-5 text-slate-900 transition-colors duration-300 dark:border-slate-800 dark:bg-slate-900 dark:text-white sm:p-6 md:p-8">
+          <header className="border-b border-slate-100 bg-white p-5 text-slate-900 transition-colors duration-300 dark:border-neutral-800 dark:bg-black dark:text-white sm:p-6 md:p-8">
             <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
               <div className="flex flex-col items-center gap-5 md:flex-row">
                 <div
@@ -303,7 +303,7 @@ export default function Resume() {
                   <LanguageSummary language={language} />
                 </div>
               </div>
-              <div className="w-full rounded-lg border border-blue-200 bg-blue-50/70 p-3.5 text-left shadow-sm ring-1 ring-blue-100/70 sm:w-auto sm:min-w-64 dark:border-blue-900/70 dark:bg-blue-950/25 dark:ring-blue-950/50">
+              <div className="w-full rounded-lg border border-blue-200 bg-blue-50/70 p-3.5 text-left shadow-sm ring-1 ring-blue-100/70 sm:w-auto sm:min-w-64 dark:border-blue-900/70 dark:bg-black dark:ring-blue-950/50">
                 <p className="mb-2 text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300">{zh ? '如何联系我？' : 'How to reach me?'}</p>
                 <div className="flex flex-col gap-2 text-sm text-slate-600 dark:text-gray-300">
                 <a
@@ -354,11 +354,11 @@ export default function Resume() {
             </div>
 
             <section className="animate-fade-in-up delay-100">
-              <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">{zh ? '项目' : 'Projects'}</h2>
+              <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">Pinned</h2>
 
               <OpenSourceProjects />
               <div className="flex flex-col">
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-700 dark:bg-gray-900 dark:hover:border-slate-600 sm:p-5">
+              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100 sm:flex-1">
                     <ProjectIcon />
@@ -392,7 +392,7 @@ export default function Resume() {
                 </ul>
               </div>
 
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-700 dark:bg-gray-900 dark:hover:border-slate-600 sm:p-5">
+              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
@@ -433,7 +433,7 @@ export default function Resume() {
                 </ul>
               </div>
 
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-700 dark:bg-gray-900 dark:hover:border-slate-600 sm:p-5">
+              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
@@ -480,7 +480,7 @@ export default function Resume() {
                 </ul>
               </div>
 
-              <div className="group order-first mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-slate-700 dark:bg-gray-900 dark:hover:border-slate-600 sm:p-5">
+              <div className="group order-first mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-neutral-700 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <h3 className="flex min-w-0 flex-1 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
@@ -527,11 +527,11 @@ export default function Resume() {
 
             <section className="animate-fade-in-up delay-300">
               <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">{zh ? '技术栈' : 'Tech Stack'}</h2>
-              <div className="space-y-4 rounded-lg border border-gray-200 bg-slate-50 p-5 dark:border-gray-800 dark:bg-slate-900">
+              <div className="space-y-4 rounded-lg border border-gray-200 bg-slate-50 p-5 dark:border-neutral-800 dark:bg-black">
                 {TECH_GROUPS.map((group) => (
                   <div
                     key={group.title}
-                    className={`space-y-3 rounded-lg p-3 ${group.featured ? 'border border-blue-200 bg-blue-50/70 dark:border-blue-900/70 dark:bg-blue-950/20' : ''}`}
+                    className={`space-y-3 rounded-lg p-3 ${group.featured ? 'border border-blue-200 bg-blue-50/70 dark:border-blue-900/70 dark:bg-black' : ''}`}
                   >
                     <h3 className={`text-xs uppercase tracking-[0.14em] font-mono ${group.featured ? 'font-bold text-blue-600 dark:text-blue-300' : 'font-semibold text-gray-500 dark:text-gray-400'}`}>
                       {zh ? ({ 'Core Languages': '主要语言', 'AI & CS': 'AI 与计算机科学', Engineering: '工程开发', 'Backend & Data': '后端与数据', 'DevOps & Tools': 'DevOps 与工具' }[group.title] ?? group.title) : group.title}

@@ -7,7 +7,7 @@ export default function LanguageToggle() {
 
   return (
     <div
-      className="inline-flex h-9 items-center rounded-lg border border-slate-200 bg-slate-100 p-0.5 text-xs font-semibold shadow-sm dark:border-slate-700 dark:bg-slate-800"
+      className="inline-flex h-9 items-center rounded-lg border border-slate-200 bg-slate-100 p-0.5 text-xs font-semibold shadow-sm dark:border-neutral-800 dark:bg-black"
       role="group"
       aria-label={language === 'en' ? 'Switch resume language' : '切换简历语言'}
     >

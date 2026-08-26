@@ -31,7 +31,7 @@ export default function WeChatContact() {
       </button>
 
       <div
-        className={`absolute left-0 top-full z-50 mt-2 w-64 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-xl transition duration-150 dark:border-slate-700 dark:bg-slate-900 dark:text-white group-hover/contact:visible group-hover/contact:translate-y-0 group-hover/contact:opacity-100 group-focus-within/contact:visible group-focus-within/contact:translate-y-0 group-focus-within/contact:opacity-100 ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
+        className={`absolute left-0 top-full z-50 mt-2 w-64 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-xl transition duration-150 dark:border-neutral-700 dark:bg-black dark:text-white group-hover/contact:visible group-hover/contact:translate-y-0 group-hover/contact:opacity-100 group-focus-within/contact:visible group-focus-within/contact:translate-y-0 group-focus-within/contact:opacity-100 ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
         role="tooltip"
       >
         <Image
