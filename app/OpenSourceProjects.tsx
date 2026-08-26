@@ -251,7 +251,7 @@ export default function OpenSourceProjects() {
               key={project.id}
               className="group min-w-0 rounded-lg border border-slate-200 bg-slate-50 p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5"
             >
-              <div className="mb-2 flex flex-wrap items-center gap-2">
+              <div className="mb-2 flex flex-col items-start gap-2 sm:flex-row sm:items-center">
                 <button
                   type="button"
                   onClick={() =>
@@ -287,7 +287,7 @@ export default function OpenSourceProjects() {
                     aria-label={zh ? '在 GitHub 查看 Cindy 官方项目' : 'View the official Cindy project on GitHub'}
                   >
                     <GithubIcon />
-                    <span>{project.officialLabel}</span>
+                    <span className="hidden sm:inline">{project.officialLabel}</span>
                   </a>
                 )}
                 <div className="flex max-w-full flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">

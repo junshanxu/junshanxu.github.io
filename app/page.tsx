@@ -303,7 +303,7 @@ export default function Resume() {
                   <LanguageSummary language={language} />
                   <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 md:justify-start">
                     <LanguageToggle />
-                    <span className="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300">{zh ? '如何联系我？' : 'How to reach me?'}</span>
+                    <span className="basis-full text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300 sm:basis-auto">{zh ? '如何联系我？' : 'How to reach me?'}</span>
                     <nav className="flex items-center gap-1" aria-label={zh ? '联系方式' : 'Contact links'}>
                       <a
                         href="mailto:yuaiccc@aliyun.com"
@@ -373,7 +373,7 @@ export default function Resume() {
                       aria-label={zh ? '在 GitHub 查看飞书叶' : 'View Feishuye on GitHub'}
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
-                      <span>yuaiccc/feishu-companion-bot</span>
+                      <span className="hidden sm:inline">yuaiccc/feishu-companion-bot</span>
                     </a>
                     <RepositoryActivity repository="yuaiccc/feishu-companion-bot" zh={zh} />
                   </div>
@@ -393,7 +393,7 @@ export default function Resume() {
               </div>
 
               <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
-                <div className="mb-2 flex flex-wrap items-center gap-2">
+                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
                     <span>{zh ? 'Sparse — 情侣日常分享小程序' : "Sparse — Couples' Daily Sharing Mini Program"}</span>
@@ -407,7 +407,7 @@ export default function Resume() {
                       aria-label={zh ? '在 GitHub 查看 Sparse' : 'View Sparse on GitHub'}
                     >
                       <GithubIcon className="h-3.5 w-3.5" />
-                      <span>yuaiccc/couple-space-miniprogram</span>
+                      <span className="hidden sm:inline">yuaiccc/couple-space-miniprogram</span>
                     </a>
                     <Image
                       src="/sparse-qr.jpg"
@@ -434,7 +434,7 @@ export default function Resume() {
               </div>
 
               <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
-                <div className="mb-2 flex flex-wrap items-center gap-2">
+                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
                     <span>{zh ? 'KotobaFlow — 日语学习智能体' : 'KotobaFlow — Agentic Japanese Learning System'}</span>
@@ -448,7 +448,7 @@ export default function Resume() {
                       aria-label={zh ? '在 GitHub 查看 KotobaFlow' : 'View KotobaFlow on GitHub'}
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
-                      <span>yuaiccc/japanese-verb-master</span>
+                      <span className="hidden sm:inline">yuaiccc/japanese-verb-master</span>
                     </a>
                     <a
                       href="https://japanese-verb-master.onrender.com"
@@ -481,7 +481,7 @@ export default function Resume() {
               </div>
 
               <div className="group order-first mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-neutral-700 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
-                <div className="mb-2 flex flex-wrap items-center gap-2">
+                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 flex-1 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
                     <span className="min-w-0 break-words">{zh ? '网页答题自动化脚本' : 'Browser Answer Automation Script'}</span>
@@ -495,7 +495,7 @@ export default function Resume() {
                       aria-label={zh ? '在 GitHub 查看网页答题自动化脚本源码' : 'View the browser answer automation source on GitHub'}
                     >
                       <GithubIcon className="h-3.5 w-3.5" />
-                      <span>{zh ? '查看源码' : 'View source'}</span>
+                      <span className="hidden sm:inline">{zh ? '查看源码' : 'View source'}</span>
                     </a>
                     <a
                       href={`https://github.com/${HDU_REPOSITORY}/stargazers`}
