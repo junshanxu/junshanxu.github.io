@@ -125,21 +125,17 @@ export const fetchLatestCommitDate = (ownerRepo: string, signal?: AbortSignal) =
     { signal, ttlMs: 5 * 60 * 1000 },
   );
 
-/**
- * Fetch the count of merged PRs opened by the signed-in user against a repo.
- * Uses the GitHub Search API (rate-limited more aggressively: 10 req/min
- * unauthenticated), so a longer TTL keeps us far from the ceiling.
- */
-export const fetchMergedPrCount = (
+/** Fetch the number of commits authored by a GitHub user in a repository. */
+export const fetchCommitCount = (
   ownerRepo: string,
   author: string,
   signal?: AbortSignal,
 ) =>
   fetchGitHubJson<{ total_count?: number }>(
-    `${GH_API_BASE}/search/issues?q=${encodeURIComponent(
-      `repo:${ownerRepo} type:pr author:${author} is:merged`,
+    `${GH_API_BASE}/search/commits?q=${encodeURIComponent(
+      `repo:${ownerRepo} author:${author}`,
     )}&per_page=1`,
-    { signal, ttlMs: 30 * 60 * 1000 }, // 30 min — search API is expensive
+    { signal, ttlMs: 30 * 60 * 1000 },
   );
 
 /**

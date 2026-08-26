@@ -414,7 +414,7 @@ export default function Resume() {
                       alt={zh ? 'Sparse 微信小程序二维码' : 'Sparse WeChat mini-program QR code'}
                       width={72}
                       height={72}
-                      className="h-14 w-14 rounded-md border border-slate-200 bg-white p-1 dark:border-slate-600"
+                      className="h-14 w-14 rounded-full border border-slate-200 bg-white p-1 dark:border-slate-600"
                     />
                     <RepositoryActivity repository="yuaiccc/couple-space-miniprogram" zh={zh} />
                   </div>
@@ -484,7 +484,7 @@ export default function Resume() {
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <h3 className="flex min-w-0 flex-1 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
-                    <span className="min-w-0 break-words">{zh ? '杭电安全教育一键答题脚本' : 'HDU One-Click Safety Answer Script'}</span>
+                    <span className="min-w-0 break-words">{zh ? '网页答题自动化脚本' : 'Browser Answer Automation Script'}</span>
                   </h3>
                   <div className="flex max-w-full flex-wrap items-center gap-2">
                     <a
@@ -492,17 +492,17 @@ export default function Resume() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-500 transition-colors hover:bg-slate-200 hover:text-blue-500 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-blue-400"
-                      aria-label={zh ? '在 GitHub 查看杭电安全教育答题脚本' : 'View HDU Safety Education Answer Script on GitHub'}
+                      aria-label={zh ? '在 GitHub 查看网页答题自动化脚本源码' : 'View the browser answer automation source on GitHub'}
                     >
                       <GithubIcon className="h-3.5 w-3.5" />
-                      <span>{HDU_REPOSITORY}</span>
+                      <span>{zh ? '查看源码' : 'View source'}</span>
                     </a>
                     <a
                       href={`https://github.com/${HDU_REPOSITORY}/stargazers`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 rounded-full bg-[#fff8c5] px-2 py-1 text-xs font-medium text-[#9a6700] ring-1 ring-[#d4a72c]/20 transition-colors hover:bg-[#fdf1a9] dark:bg-[#4d3b00]/50 dark:text-[#eac54f] dark:ring-[#eac54f]/20 dark:hover:bg-[#5f4a00]/60"
-                      aria-label={zh ? `杭电安全教育答题脚本 ${hduStarCount ?? '—'} 个 Star` : `HDU Safety Education Answer Script has ${hduStarCount ?? '—'} GitHub stars`}
+                      aria-label={zh ? `网页答题自动化脚本 ${hduStarCount ?? '—'} 个 Star` : `Browser answer automation script has ${hduStarCount ?? '—'} GitHub stars`}
                     >
                       <StarIcon />
                       <span>{hduStarCount === null ? '—' : `${hduStarCount.toLocaleString(zh ? 'zh-CN' : 'en-US')} Star`}</span>
@@ -516,8 +516,8 @@ export default function Resume() {
                   {zh ? '辅助工具' : 'Supporting Tool'} | <InlineTech tech="Python" />
                 </p>
                 <ul className="ml-5 list-disc list-outside space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>{zh ? <>负责开发本地网页工具，重构杭州电子科技大学安全教育平台的重复答题流程，实现粘贴平台链接后自动处理。</> : <>Turned the repetitive answering flow in the HDU safety-education platform into a local web tool that starts from a pasted platform link.</>}</li>
-                  <li>{zh ? <>设计并实现一键安装脚本和本地运行方式，优化服务边界为仅监听本机地址，并补充清晰的使用说明。</> : <>Provides a one-command installer and local runtime with a loopback-only service and clear usage boundaries.</>}</li>
+                  <li>{zh ? <>负责开发本地网页自动化工具，重构重复答题流程，实现粘贴页面链接后自动解析并执行。</> : <>Developed a local browser automation tool that reconstructs repetitive answering flows, parses a pasted page link, and runs the workflow automatically.</>}</li>
+                  <li>{zh ? <>设计并实现一键安装脚本和本地运行方式，优化服务边界为仅监听本机地址，并补充清晰的使用说明。</> : <>Designed a one-command installer and local runtime, constrained the service to loopback access, and documented the usage boundaries.</>}</li>
                 </ul>
               </div>
               </div>

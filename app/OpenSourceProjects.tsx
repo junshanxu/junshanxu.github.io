@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { fetchMergedPrCount, fetchRepo } from '@/lib/github';
+import { fetchCommitCount, fetchRepo } from '@/lib/github';
 import { useResumeLanguage } from './language';
 import RepositoryActivity from './RepositoryActivity';
 
@@ -29,16 +29,16 @@ const PROJECT_REPOSITORIES: Record<ProjectId, string> = {
   cindy: 'makecindy/cindy',
 };
 
-const CACHED_PROJECT_METRICS: Record<ProjectId, { stars: number; mergedPullRequests: number }> = {
+const CACHED_PROJECT_METRICS: Record<ProjectId, { stars: number; commits: number }> = {
   // Updated when this page is published. These values remain visible when a
   // visitor cannot reach GitHub, then the client refreshes them when it can.
-  cindy: { stars: 2244, mergedPullRequests: 19 },
+  cindy: { stars: 2312, commits: 26 },
 };
 
 const repositoryStarsUrl = (repository: string) => `https://github.com/${repository}/stargazers`;
 
-const mergedPullRequestsUrl = (repository: string) =>
-  `https://github.com/${repository}/pulls?q=${encodeURIComponent('is:pr author:yuaiccc is:merged')}`;
+const commitsUrl = (repository: string) =>
+  `https://github.com/${repository}/commits?author=yuaiccc`;
 
 const useRepositoryStarCounts = () => {
   const [counts, setCounts] = useState<Partial<Record<ProjectId, number>>>(() =>
@@ -72,12 +72,12 @@ const useRepositoryStarCounts = () => {
   return counts;
 };
 
-const useMergedPullRequestCounts = () => {
+const useCommitCounts = () => {
   const [counts, setCounts] = useState<Partial<Record<ProjectId, number>>>(() =>
     Object.fromEntries(
       (Object.keys(PROJECT_REPOSITORIES) as ProjectId[]).map((id) => [
         id,
-        CACHED_PROJECT_METRICS[id].mergedPullRequests,
+        CACHED_PROJECT_METRICS[id].commits,
       ]),
     ),
   );
@@ -90,7 +90,7 @@ const useMergedPullRequestCounts = () => {
       // stay under GitHub's tighter 10 req/min unauthenticated search limit.
       const entries = await Promise.all(
         (Object.entries(PROJECT_REPOSITORIES) as [ProjectId, string][]).map(async ([id, repository]) => {
-          const result = await fetchMergedPrCount(repository, 'yuaiccc', controller.signal);
+          const result = await fetchCommitCount(repository, 'yuaiccc', controller.signal);
           return [id, result?.total_count ?? null] as const;
         }),
       );
@@ -116,14 +116,16 @@ const PROJECTS: Project[] = [
     summary: 'Led the architecture for a visible multi-model, multi-harness AI agent workspace; built long-running collaboration, user interruption, and persistent task context.',
     summaryZh: '主导多模型与多 Harness 协同架构设计；构建可见任务流、用户插话干预与长任务上下文保留；接入 Claude Code、Codex 等 Harness。',
     summaryPoints: [
-      'Led the architecture for collaboration across multiple models and coding harnesses, including Claude Code and Codex.',
-      'Built visible task flows with user interruption and mid-task intervention.',
-      'Designed persistent context for long-running collaboration after a task is completed.',
+      'Led architecture for collaboration across multiple models and coding harnesses, including Claude Code and Codex.',
+      'Designed visible task flows, task plans, and collaboration-state synchronization so work stays observable and adjustable.',
+      'Implemented interruption, resume, and persistent context for long-running tasks after completion.',
+      'Contributed to model, plugin, and Agent reliability improvements; credited as yuaiccc (Junshan) in multiple Cindy release notes.',
     ],
     summaryPointsZh: [
-      '主导多模型与多 Harness 协同架构设计，接入 Claude Code、Codex 等 Harness。',
-      '构建可见任务流与用户插话干预机制，让协作过程可观察、可中途调整。',
-      '设计长任务上下文保留能力，支持任务完成后继续查看与跟进。',
+      '主导多模型与多 Harness 协同架构设计，接入 Claude Code、Codex 等 Harness，支持在同一任务中协作。',
+      '设计并构建可见任务流、任务计划与协同状态同步，让执行过程可观察、可中途调整。',
+      '实现用户插话、中断与续跑机制，保留长任务上下文，支持完成后继续查看与跟进。',
+      '参与模型、插件与 Agent 稳定性优化；在多个 Cindy 版本公告中以 yuaiccc（Junshan）列入致谢。',
     ],
     description:
       'Cindy is an open-source AI agent client built for visible, long-running collaboration. Multiple models and coding harnesses can work together in one task; the full process stays visible, users can intervene mid-task, and completed work remains available instead of disappearing. It supports Claude Code and Codex harnesses across desktop and mobile.',
@@ -181,9 +183,9 @@ const DownloadIcon = () => (
   </svg>
 );
 
-const MergedIcon = () => (
+const CommitIcon = () => (
   <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-    <path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z" />
+    <path d="M5.5 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm0 1.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM8.25 5h5.25v1.5H8.25V5Z" />
   </svg>
 );
 
@@ -213,21 +215,21 @@ const RepositoryStars = ({ projectId, count, zh }: { projectId: ProjectId; count
   );
 };
 
-const MergedPullRequests = ({ projectId, count, zh }: { projectId: ProjectId; count?: number; zh: boolean }) => {
+const RepositoryCommits = ({ projectId, count, zh }: { projectId: ProjectId; count?: number; zh: boolean }) => {
   const repository = PROJECT_REPOSITORIES[projectId];
   const countLabel = count === undefined
-    ? zh ? '合并 PR' : 'Merged PRs'
-    : zh ? `${count} 个合并 PR` : `${count} merged PR${count === 1 ? '' : 's'}`;
+    ? zh ? '提交' : 'Commits'
+    : zh ? `${count} 次提交` : `${count} commit${count === 1 ? '' : 's'}`;
 
   return (
     <a
-      href={mergedPullRequestsUrl(repository)}
+      href={commitsUrl(repository)}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-1 rounded-full bg-[#f5f0ff] px-2 py-1 font-medium text-[#8250df] ring-1 ring-[#8250df]/15 transition-colors hover:bg-[#ede3ff] dark:bg-[#3b1f50]/70 dark:text-[#d2a8ff] dark:ring-[#d2a8ff]/20 dark:hover:bg-[#4b2864]/80"
-      title={zh ? 'GitHub 实时合并数据' : 'Live merged data from GitHub'}
+      title={zh ? 'GitHub 实时提交数据' : 'Live commit data from GitHub'}
     >
-      <MergedIcon />
+      <CommitIcon />
       {countLabel}
     </a>
   );
@@ -237,7 +239,7 @@ export default function OpenSourceProjects() {
   const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({});
   const zh = useResumeLanguage() !== 'en';
   const repositoryStarCounts = useRepositoryStarCounts();
-  const mergedPullRequestCounts = useMergedPullRequestCounts();
+  const commitCounts = useCommitCounts();
 
   return (
       <div className="mb-4 grid gap-4">
@@ -294,9 +296,9 @@ export default function OpenSourceProjects() {
                     count={repositoryStarCounts[project.id]}
                     zh={zh}
                   />
-                  <MergedPullRequests
+                  <RepositoryCommits
                     projectId={project.id}
-                    count={mergedPullRequestCounts[project.id]}
+                    count={commitCounts[project.id]}
                     zh={zh}
                   />
                   {project.downloadHref && (
