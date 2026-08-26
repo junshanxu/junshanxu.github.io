@@ -8,7 +8,7 @@ const WeChatIcon = () => (
   // Use the official WeChat mark as a local asset so the contact card does
   // not depend on a remote icon font or a hand-drawn approximation.
   // eslint-disable-next-line @next/next/no-img-element
-  <img src="/tech/wechat.svg" alt="" className="h-4 w-4" aria-hidden="true" />
+  <img src="/tech/wechat.svg" alt="" className="h-5 w-5" aria-hidden="true" />
 );
 
 export default function WeChatContact() {
@@ -22,16 +22,16 @@ export default function WeChatContact() {
         onClick={() => setOpen((current) => !current)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
-        className="inline-flex items-center justify-start gap-2 transition hover:text-slate-900 dark:hover:text-white"
+        className="inline-flex h-8 w-8 items-center justify-start transition hover:text-slate-900 dark:hover:text-white"
         aria-expanded={open}
         aria-label={zh ? '显示微信好友二维码' : 'Show WeChat friend QR code'}
+        title={zh ? '显示微信好友二维码' : 'Show WeChat friend QR code'}
       >
         <WeChatIcon />
-        <span>{zh ? '微信' : 'WeChat'}</span>
       </button>
 
       <div
-        className={`absolute left-0 top-full z-50 mt-2 w-64 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-xl transition duration-150 dark:border-neutral-700 dark:bg-black dark:text-white group-hover/contact:visible group-hover/contact:translate-y-0 group-hover/contact:opacity-100 group-focus-within/contact:visible group-focus-within/contact:translate-y-0 group-focus-within/contact:opacity-100 ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
+        className={`absolute left-0 top-full z-50 mt-2 w-64 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-xl transition duration-150 dark:border-neutral-700 dark:bg-[#141413] dark:text-white group-hover/contact:visible group-hover/contact:translate-y-0 group-hover/contact:opacity-100 group-focus-within/contact:visible group-focus-within/contact:translate-y-0 group-focus-within/contact:opacity-100 ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
         role="tooltip"
       >
         <Image

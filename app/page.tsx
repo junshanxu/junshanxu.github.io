@@ -141,7 +141,7 @@ const TECH_GROUPS: TechGroup[] = [
 
 const TechBadge = ({ name, icon, invertDark }: TechItem) => (
   <li className="group/list-item">
-    <span className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 transition-colors duration-200 hover:border-blue-200 hover:bg-slate-50 dark:border-neutral-700 dark:bg-[#0a0a0a] dark:hover:border-blue-800 dark:hover:bg-[#171717]">
+    <span className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 transition-colors duration-200 hover:border-blue-200 hover:bg-slate-50 dark:border-neutral-700 dark:bg-[#1b1b1a] dark:hover:border-blue-800 dark:hover:bg-[#242423]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={icon}
@@ -230,7 +230,7 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
   <section className="animate-fade-in-up delay-400">
     <h2 className="mb-4 border-l-[3px] border-blue-500 pl-3 text-xl font-bold text-slate-800 dark:text-slate-100">{zh ? '教育经历' : 'Education'}</h2>
     <div className="divide-y divide-slate-200 dark:divide-slate-700">
-      <div className="rounded-lg border border-slate-200 bg-white px-4 py-4 shadow-sm dark:border-neutral-800 dark:bg-black sm:px-5">
+      <div className="rounded-lg border border-slate-200 bg-white px-4 py-4 shadow-sm dark:border-neutral-800 dark:bg-[#141413] sm:px-5">
         <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <span className="inline-flex h-12 w-12 shrink-0 items-center overflow-hidden rounded-full">
@@ -270,14 +270,14 @@ export default function Resume() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}
       />
       <ScrollProgress />
-      <div className="min-h-screen bg-slate-50 px-3 py-4 font-sans text-gray-800 transition-colors duration-300 dark:bg-black dark:text-gray-100 sm:px-6 sm:py-8 lg:px-8">
+      <div className="min-h-screen bg-slate-50 px-3 py-4 font-sans text-gray-800 transition-colors duration-300 dark:bg-[#141413] dark:text-gray-100 sm:px-6 sm:py-8 lg:px-8">
         <div
           lang={language === 'en' ? 'en' : 'zh-CN'}
-          className="resume-card relative mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-200 transition-colors duration-300 dark:bg-black dark:ring-neutral-800"
+          className="resume-card relative mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-200 transition-colors duration-300 dark:bg-[#141413] dark:ring-neutral-800"
         >
           {/* === 头部信息 === */}
-          <header className="border-b border-slate-100 bg-white p-5 text-slate-900 transition-colors duration-300 dark:border-neutral-800 dark:bg-black dark:text-white sm:p-6 md:p-8">
-            <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
+          <header className="border-b border-slate-100 bg-white p-5 text-slate-900 transition-colors duration-300 dark:border-neutral-800 dark:bg-[#141413] dark:text-white sm:p-6 md:p-8">
+            <div className="flex flex-col items-center gap-5 md:flex-row">
               <div className="flex flex-col items-center gap-5 md:flex-row">
                 <div
                   className="relative aspect-[1290/1733] w-20 flex-shrink-0 select-none overflow-hidden rounded-lg shadow-sm ring-1 ring-slate-200 dark:ring-white/10 sm:w-24"
@@ -301,64 +301,64 @@ export default function Resume() {
                     {zh ? '许君山' : 'Xu Junshan'}
                   </h1>
                   <LanguageSummary language={language} />
-                </div>
-              </div>
-              <div className="w-full rounded-lg border border-blue-200 bg-blue-50/70 p-3.5 text-left shadow-sm ring-1 ring-blue-100/70 sm:w-auto sm:min-w-64 dark:border-blue-900/70 dark:bg-black dark:ring-blue-950/50">
-                <p className="mb-2 text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300">{zh ? '如何联系我？' : 'How to reach me?'}</p>
-                <div className="flex flex-col gap-2 text-sm text-slate-600 dark:text-gray-300">
-                <a
-                  href="mailto:yuaiccc@aliyun.com"
-                  className="inline-flex items-center justify-start gap-2 transition hover:text-slate-900 dark:hover:text-white"
-                >
-                  <MailIcon />
-                  <span>yuaiccc@aliyun.com</span>
-                </a>
-                <a
-                  href="https://github.com/yuaiccc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-start gap-2 transition hover:text-slate-900 dark:hover:text-white"
-                >
-                  <GithubIcon />
-                  <span>yuaiccc</span>
-                </a>
-                <a
-                  href="https://x.com/Hakikeioak"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-start gap-2 transition hover:text-slate-900 dark:hover:text-white"
-                >
-                  <XIcon />
-                  <span>Hakikeioak</span>
-                </a>
-                <WeChatContact />
-                <FeishuContact />
-                <a
-                  href="https://modelscope.cn/profile/yuaiccc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-start gap-2 transition hover:text-slate-900 dark:hover:text-white"
-                  aria-label={zh ? '打开我的 ModelScope 主页' : 'Open my ModelScope profile'}
-                >
-                  <ModelScopeIcon className="h-4 w-4 text-[#1677ff]" />
-                  <span>ModelScope</span>
-                </a>
+                  <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 md:justify-start">
+                    <LanguageToggle />
+                    <span className="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300">{zh ? '如何联系我？' : 'How to reach me?'}</span>
+                    <nav className="flex items-center gap-1" aria-label={zh ? '联系方式' : 'Contact links'}>
+                      <a
+                        href="mailto:yuaiccc@aliyun.com"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-gray-300 dark:hover:bg-neutral-900 dark:hover:text-white"
+                        aria-label={zh ? '发送邮件至 yuaiccc@aliyun.com' : 'Email yuaiccc@aliyun.com'}
+                        title={zh ? '发送邮件至 yuaiccc@aliyun.com' : 'Email yuaiccc@aliyun.com'}
+                      >
+                        <MailIcon className="h-5 w-5" />
+                      </a>
+                      <a
+                        href="https://github.com/yuaiccc"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-gray-300 dark:hover:bg-neutral-900 dark:hover:text-white"
+                        aria-label={zh ? '打开我的 GitHub 主页' : 'Open my GitHub profile'}
+                        title={zh ? '打开我的 GitHub 主页' : 'Open my GitHub profile'}
+                      >
+                        <GithubIcon className="h-5 w-5" />
+                      </a>
+                      <a
+                        href="https://x.com/Hakikeioak"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-gray-300 dark:hover:bg-neutral-900 dark:hover:text-white"
+                        aria-label={zh ? '打开我的 X 主页' : 'Open my X profile'}
+                        title={zh ? '打开我的 X 主页' : 'Open my X profile'}
+                      >
+                        <XIcon className="h-5 w-5" />
+                      </a>
+                      <WeChatContact />
+                      <FeishuContact />
+                      <a
+                        href="https://modelscope.cn/profile/yuaiccc"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-gray-300 dark:hover:bg-neutral-900 dark:hover:text-white"
+                        aria-label={zh ? '打开我的 ModelScope 主页' : 'Open my ModelScope profile'}
+                        title={zh ? '打开我的 ModelScope 主页' : 'Open my ModelScope profile'}
+                      >
+                        <ModelScopeIcon className="h-5 w-5 text-[#1677ff]" />
+                      </a>
+                    </nav>
+                  </div>
                 </div>
               </div>
             </div>
           </header>
 
           <div className="space-y-8 p-5 sm:p-8 md:p-10">
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <LanguageToggle />
-            </div>
-
             <section className="animate-fade-in-up delay-100">
               <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">Pinned</h2>
 
               <OpenSourceProjects />
               <div className="flex flex-col">
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5">
+              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100 sm:flex-1">
                     <ProjectIcon />
@@ -392,7 +392,7 @@ export default function Resume() {
                 </ul>
               </div>
 
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5">
+              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
@@ -433,7 +433,7 @@ export default function Resume() {
                 </ul>
               </div>
 
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5">
+              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
@@ -480,7 +480,7 @@ export default function Resume() {
                 </ul>
               </div>
 
-              <div className="group order-first mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-neutral-700 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5">
+              <div className="group order-first mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-neutral-700 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-wrap items-center gap-2">
                   <h3 className="flex min-w-0 flex-1 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
@@ -516,8 +516,8 @@ export default function Resume() {
                   {zh ? '辅助工具' : 'Supporting Tool'} | <InlineTech tech="Python" />
                 </p>
                 <ul className="ml-5 list-disc list-outside space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>{zh ? <>负责开发本地网页自动化工具，重构重复答题流程，实现粘贴页面链接后自动解析并执行。</> : <>Developed a local browser automation tool that reconstructs repetitive answering flows, parses a pasted page link, and runs the workflow automatically.</>}</li>
-                  <li>{zh ? <>设计并实现一键安装脚本和本地运行方式，优化服务边界为仅监听本机地址，并补充清晰的使用说明。</> : <>Designed a one-command installer and local runtime, constrained the service to loopback access, and documented the usage boundaries.</>}</li>
+                  <li>{zh ? <>梳理课程目录、题目、单元测试、错题回流与正式考试接口，构建从链接解析到证书生成的自动化流程；按题干归一化维护本地题库，并从错题接口学习答案。</> : <>Mapped the course, question, unit-test, wrong-answer, and exam endpoints into one workflow from URL parsing to certificate generation; normalized question stems in a local bank and learned answers from the wrong-answer API.</>}</li>
+                  <li>{zh ? <>基于 Python 标准库构建零依赖本地服务，使用 <span className="font-semibold text-slate-900 dark:text-slate-200">ThreadingHTTPServer + SSE</span> 承载并发任务与实时日志；实现跨平台安装器、请求体/证书校验、敏感参数脱敏和全流程集成测试。</> : <>Built a zero-dependency local service with the Python standard library, using <span className="font-semibold text-slate-900 dark:text-slate-200">ThreadingHTTPServer + SSE</span> for concurrent tasks and live logs; added cross-platform installers, request/certificate validation, sensitive-parameter redaction, and end-to-end integration tests.</>}</li>
                 </ul>
               </div>
               </div>
@@ -527,11 +527,11 @@ export default function Resume() {
 
             <section className="animate-fade-in-up delay-300">
               <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">{zh ? '技术栈' : 'Tech Stack'}</h2>
-              <div className="space-y-4 rounded-lg border border-gray-200 bg-slate-50 p-5 dark:border-neutral-800 dark:bg-black">
+              <div className="space-y-4 rounded-lg border border-gray-200 bg-slate-50 p-5 dark:border-neutral-800 dark:bg-[#141413]">
                 {TECH_GROUPS.map((group) => (
                   <div
                     key={group.title}
-                    className={`space-y-3 rounded-lg p-3 ${group.featured ? 'border border-blue-200 bg-blue-50/70 dark:border-blue-900/70 dark:bg-black' : ''}`}
+                    className={`space-y-3 rounded-lg p-3 ${group.featured ? 'border border-blue-200 bg-blue-50/70 dark:border-blue-900/70 dark:bg-[#141413]' : ''}`}
                   >
                     <h3 className={`text-xs uppercase tracking-[0.14em] font-mono ${group.featured ? 'font-bold text-blue-600 dark:text-blue-300' : 'font-semibold text-gray-500 dark:text-gray-400'}`}>
                       {zh ? ({ 'Core Languages': '主要语言', 'AI & CS': 'AI 与计算机科学', Engineering: '工程开发', 'Backend & Data': '后端与数据', 'DevOps & Tools': 'DevOps 与工具' }[group.title] ?? group.title) : group.title}
@@ -546,12 +546,12 @@ export default function Resume() {
               </div>
             </section>
 
-            <footer className="mt-8 border-t border-gray-200 pt-3 pb-2 text-center text-sm text-gray-400 dark:border-gray-700">
+            <footer className="mt-8 border-t border-gray-200 pt-4 pb-2 text-sm text-gray-400 dark:border-neutral-800">
               {!footerExpanded ? (
                 <button
                   type="button"
                   onClick={() => setFooterExpanded(true)}
-                  className="inline-flex h-7 items-center gap-1 rounded-md px-2 text-xs text-slate-400 transition hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
+                  className="mt-3 flex h-7 w-full items-center justify-center gap-1 rounded-md px-2 text-xs text-slate-400 transition hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-neutral-900 dark:hover:text-slate-300"
                   aria-expanded="false"
                 >
                   <span aria-hidden="true">⌄</span>

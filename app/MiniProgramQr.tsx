@@ -44,7 +44,7 @@ export default function MiniProgramQr({ src, label, labelEn, hint, hintEn }: Pro
       </button>
 
       <div
-        className={`absolute left-1/2 top-full z-50 mt-2 w-60 -translate-x-1/2 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-xl transition duration-150 dark:border-neutral-700 dark:bg-black dark:text-white md:left-auto md:right-0 md:translate-x-0 group-hover/qr:visible group-hover/qr:translate-y-0 group-hover/qr:opacity-100 group-focus-within/qr:visible group-focus-within/qr:translate-y-0 group-focus-within/qr:opacity-100 ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
+        className={`absolute left-1/2 top-full z-50 mt-2 w-60 -translate-x-1/2 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-xl transition duration-150 dark:border-neutral-700 dark:bg-[#141413] dark:text-white md:left-auto md:right-0 md:translate-x-0 group-hover/qr:visible group-hover/qr:translate-y-0 group-hover/qr:opacity-100 group-focus-within/qr:visible group-focus-within/qr:translate-y-0 group-focus-within/qr:opacity-100 ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
         role="tooltip"
       >
         <Image

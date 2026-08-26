@@ -327,12 +327,12 @@ export default function ResumeSearch() {
 
   return (
     <div
-      className="sticky top-0 z-40 w-full border-b border-slate-200/70 dark:border-neutral-800/70 bg-white/80 dark:bg-black/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/60"
+      className="sticky top-0 z-40 w-full border-b border-slate-200/70 dark:border-neutral-800/70 bg-white/80 dark:bg-[#141413]/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-[#141413]/60"
       role="search"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
         <div ref={containerRef} className="relative">
-          <div className={`flex items-center gap-2 rounded-lg border border-slate-200 dark:border-neutral-700 bg-white dark:bg-black shadow-sm focus-within:border-blue-400 dark:focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-400/20 dark:focus-within:ring-blue-500/20 transition-all ${!hasInteracted ? 'animate-[searchGlow_2.5s_ease-in-out_2]' : ''}`}>
+          <div className={`flex items-center gap-2 rounded-lg border border-slate-200 dark:border-neutral-700 bg-white dark:bg-[#141413] shadow-sm focus-within:border-blue-400 dark:focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-400/20 dark:focus-within:ring-blue-500/20 transition-all ${!hasInteracted ? 'animate-[searchGlow_2.5s_ease-in-out_2]' : ''}`}>
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -377,7 +377,7 @@ export default function ResumeSearch() {
                 </span>
               )}
             </div>
-            <kbd className="mr-3 hidden sm:inline-flex items-center gap-1 rounded border border-slate-200 dark:border-neutral-700 bg-slate-50 dark:bg-black px-1.5 py-0.5 text-[10px] font-mono text-slate-500 dark:text-slate-400">
+            <kbd className="mr-3 hidden sm:inline-flex items-center gap-1 rounded border border-slate-200 dark:border-neutral-700 bg-slate-50 dark:bg-[#141413] px-1.5 py-0.5 text-[10px] font-mono text-slate-500 dark:text-slate-400">
               ⌘K
             </kbd>
           </div>
@@ -385,7 +385,7 @@ export default function ResumeSearch() {
           {showDropdown && (
             <div
               role="listbox"
-              className="absolute left-0 right-0 mt-2 max-h-[min(70vh,32rem)] overflow-y-auto rounded-lg border border-slate-200 dark:border-neutral-700 bg-white dark:bg-black shadow-lg ring-1 ring-black/5 dark:ring-white/5"
+              className="absolute left-0 right-0 mt-2 max-h-[min(70vh,32rem)] overflow-y-auto rounded-lg border border-slate-200 dark:border-neutral-700 bg-white dark:bg-[#141413] shadow-lg ring-1 ring-black/5 dark:ring-white/5"
             >
               {status === 'loading' && (
                 <div className="h-0.5 w-full overflow-hidden">

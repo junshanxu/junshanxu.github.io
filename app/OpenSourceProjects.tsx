@@ -249,7 +249,7 @@ export default function OpenSourceProjects() {
           return (
             <article
               key={project.id}
-              className="group min-w-0 rounded-lg border border-slate-200 bg-slate-50 p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-black dark:hover:border-neutral-700 sm:p-5"
+              className="group min-w-0 rounded-lg border border-slate-200 bg-slate-50 p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5"
             >
               <div className="mb-2 flex flex-wrap items-center gap-2">
                 <button

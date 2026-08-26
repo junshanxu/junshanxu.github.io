@@ -17,16 +17,16 @@ export default function FeishuContact() {
         onClick={() => setOpen((current) => !current)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
-        className="inline-flex items-center justify-start gap-2 transition hover:text-slate-900 dark:hover:text-white"
+        className="inline-flex h-8 w-8 items-center justify-start transition hover:text-slate-900 dark:hover:text-white"
         aria-expanded={open}
         aria-label={zh ? '显示飞书二维码' : 'Show Feishu QR code'}
+        title={zh ? '显示飞书二维码' : 'Show Feishu QR code'}
       >
-        <Image src="/feishu-icon.png" alt="" width={18} height={18} className="h-4 w-4 rounded-[4px]" aria-hidden="true" />
-        <span>{zh ? '飞书' : 'Feishu'}</span>
+        <Image src="/feishu-icon.png" alt="" width={20} height={20} className="h-5 w-5 rounded-[5px]" aria-hidden="true" />
       </button>
 
       <div
-        className={`absolute left-0 top-full z-50 mt-2 w-64 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-xl transition duration-150 dark:border-neutral-700 dark:bg-black dark:text-white group-hover/contact:visible group-hover/contact:translate-y-0 group-hover/contact:opacity-100 group-focus-within/contact:visible group-focus-within/contact:translate-y-0 group-focus-within/contact:opacity-100 ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
+        className={`absolute left-0 top-full z-50 mt-2 w-64 rounded-lg border border-slate-200 bg-white p-2 text-slate-900 shadow-xl transition duration-150 dark:border-neutral-700 dark:bg-[#141413] dark:text-white group-hover/contact:visible group-hover/contact:translate-y-0 group-hover/contact:opacity-100 group-focus-within/contact:visible group-focus-within/contact:translate-y-0 group-focus-within/contact:opacity-100 ${open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'}`}
         role="tooltip"
       >
         <Image
