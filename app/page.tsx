@@ -516,8 +516,8 @@ export default function Resume() {
                   {zh ? '辅助工具' : 'Supporting Tool'} | <InlineTech tech="Python" />
                 </p>
                 <ul className="ml-5 list-disc list-outside space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>{zh ? <>梳理课程目录、题目、单元测试、错题回流与正式考试接口，构建从链接解析到证书生成的自动化流程；按题干归一化维护本地题库，并从错题接口学习答案。</> : <>Mapped the course, question, unit-test, wrong-answer, and exam endpoints into one workflow from URL parsing to certificate generation; normalized question stems in a local bank and learned answers from the wrong-answer API.</>}</li>
-                  <li>{zh ? <>基于 Python 标准库构建零依赖本地服务，使用 <span className="font-semibold text-slate-900 dark:text-slate-200">ThreadingHTTPServer + SSE</span> 承载并发任务与实时日志；实现跨平台安装器、请求体/证书校验、敏感参数脱敏和全流程集成测试。</> : <>Built a zero-dependency local service with the Python standard library, using <span className="font-semibold text-slate-900 dark:text-slate-200">ThreadingHTTPServer + SSE</span> for concurrent tasks and live logs; added cross-platform installers, request/certificate validation, sensitive-parameter redaction, and end-to-end integration tests.</>}</li>
+                  <li>{zh ? <>面向杭电同学，把费时费力的安全教育答题流程整理成可直接运行的脚本；粘贴课程链接后自动续做未完成内容、跳过已完成部分，结束后直接展示证书，减少重复操作。</> : <>Built for Hangzhou Dianzi University students, this turns the time-consuming safety-education workflow into a runnable script; it resumes unfinished content, skips completed work, and shows the certificate after the link is pasted.</>}</li>
+                  <li>{zh ? <>提供 Windows、macOS、Linux 一键安装和本地运行方式；网页中展示处理进度、异常和结果，不要求使用者理解脚本细节，拿到链接即可开始。</> : <>Packaged one-step local setup for Windows, macOS, and Linux; the web UI shows progress, errors, and results so users can start from a link without understanding the script internals.</>}</li>
                 </ul>
               </div>
               </div>
