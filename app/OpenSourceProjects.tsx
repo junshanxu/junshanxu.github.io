@@ -113,8 +113,8 @@ const PROJECTS: Project[] = [
     id: 'cindy',
     name: 'yuaiccc/cindy',
     href: 'https://github.com/yuaiccc/cindy',
-    summary: 'Cindy is built for long-running collaboration, bringing multiple Agent harnesses, models, and tools into one task workflow and supporting collaboration, switching, and context continuity across different `Harness × Model` combinations.',
-    summaryZh: 'Cindy 面向长任务协作，将多个 Agent Harness、模型与工具统一到同一任务工作流中，支持不同 `Harness × Model` 组合之间的协作、切换与上下文连续。',
+    summary: 'Cindy is built for long-running collaboration, bringing multiple Agent harnesses, models, and tools into one task workflow and supporting collaboration, switching, and context continuity across different Harness × Model combinations.',
+    summaryZh: 'Cindy 面向长任务协作，将多个 Agent Harness、模型与工具统一到同一任务工作流中，支持不同 Harness × Model 组合之间的协作、切换与上下文连续。',
     summaryPoints: [
       'As a core active contributor, contributed 25+ merged PRs and was repeatedly listed in official release contributor credits; focused on Agent harnesses, model and tool calling, protocol bridges, provider compatibility, and client reliability.',
       'Improved cross-harness session and collaboration-history compatibility; through protocol translation and context normalization, enabled task states and collaboration messages produced by different Agent runtimes to remain consumable across heterogeneous model paths.',
@@ -126,9 +126,9 @@ const PROJECTS: Project[] = [
       '持续优化 Agent Runtime 与插件 Infra，解决异步状态同步、竞态条件、超时恢复、Session 生命周期及跨平台子进程管理等稳定性问题。',
     ],
     description:
-      'Cindy is built for long-running collaboration, bringing multiple Agent harnesses, models, and tools into one task workflow and supporting collaboration, switching, and context continuity across different `Harness × Model` combinations.',
+      'Cindy is built for long-running collaboration, bringing multiple Agent harnesses, models, and tools into one task workflow and supporting collaboration, switching, and context continuity across different Harness × Model combinations.',
     descriptionZh:
-      'Cindy 面向长任务协作，将多个 Agent Harness、模型与工具统一到同一任务工作流中，支持不同 `Harness × Model` 组合之间的协作、切换与上下文连续。',
+      'Cindy 面向长任务协作，将多个 Agent Harness、模型与工具统一到同一任务工作流中，支持不同 Harness × Model 组合之间的协作、切换与上下文连续。',
     showTapTapBrand: true,
     downloadHref: 'https://cindy.app/download/',
     officialHref: 'https://github.com/makecindy/cindy',
