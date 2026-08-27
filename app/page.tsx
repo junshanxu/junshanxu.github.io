@@ -241,7 +241,7 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
         </div>
         <div className="mb-2 flex flex-wrap items-center gap-2 text-gray-700 dark:text-gray-300">
           <span>{zh ? '2022-2026 人工智能 工学学士' : '2022–2026 B.Eng. in Artificial Intelligence'} / <span className="font-medium text-blue-500">{zh ? '专业前 30%' : 'Top 30% in major'}</span></span>
-          <span className="inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+          <span className="inline-block rounded-full border border-slate-300 px-3 py-1 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-400">
           {zh ? '学业优秀奖学金' : 'Academic Excellence Scholarship'}
           </span>
         </div>
