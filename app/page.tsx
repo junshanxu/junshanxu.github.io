@@ -67,10 +67,6 @@ const useGitHubStarCount = (repository: string) => {
   useEffect(() => {
     const controller = new AbortController();
 
-    // Uses the shared cached/deduped helper in lib/github.ts — this avoids
-    // both the 7-req-per-load storm that could trip the unauthenticated
-    // rate limit and the cache-busting `no-store` that previously forced a
-    // fresh request on every mount.
     fetchRepo(repository, controller.signal).then((data) => {
       if (data?.stargazers_count) {
         setStarCount(data.stargazers_count);
@@ -244,13 +240,13 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
           </div>
         </div>
         <div className="mb-2 flex flex-wrap items-center gap-2 text-gray-700 dark:text-gray-300">
-          <span>{zh ? '人工智能工学学士' : 'B.Eng. in Artificial Intelligence'} / <span className="font-medium text-blue-500">{zh ? '专业前 30%' : 'Top 30% in major'}</span></span>
+          <span>{zh ? '2022-2026 人工智能 工学学士' : '2022–2026 B.Eng. in Artificial Intelligence'} / <span className="font-medium text-blue-500">{zh ? '专业前 30%' : 'Top 30% in major'}</span></span>
           <span className="inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
           {zh ? '学业优秀奖学金' : 'Academic Excellence Scholarship'}
           </span>
         </div>
         <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          <span className="font-medium">{zh ? '核心课程：' : 'Core coursework:'}</span> {zh ? '计算机操作系统、数据结构、线性代数、自然语言处理、深度学习、计算机网络、软件工程' : 'Computer Operating Systems, Data Structures, Linear Algebra, Natural Language Processing, Deep Learning, Computer Networks, and Software Engineering'}
+          <span className="font-medium">{zh ? '核心课程：' : 'Core coursework:'}</span> {zh ? '深度学习、计算机操作系统、数据结构、线性代数、自然语言处理、计算机网络、软件工程' : 'Deep Learning, Computer Operating Systems, Data Structures, Linear Algebra, Natural Language Processing, Computer Networks, and Software Engineering'}
         </p>
       </div>
     </div>
@@ -353,12 +349,14 @@ export default function Resume() {
           </header>
 
           <div className="space-y-8 p-5 sm:p-8 md:p-10">
+            <EducationSection zh={zh} />
+
             <section className="animate-fade-in-up delay-100">
               <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">Pinned</h2>
 
               <OpenSourceProjects />
               <div className="flex flex-col">
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
+              <div className="order-4 group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100 sm:flex-1">
                     <ProjectIcon />
@@ -385,18 +383,17 @@ export default function Resume() {
                   <InlineTech tech="Go" />
                 </p>
                 <ul className="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">智能体运行时：</span>负责设计并实现基于飞书 WebSocket 长连接和 CardKit 流式 API 的 <span className="font-semibold text-slate-900 dark:text-slate-200">Go</span> 服务；重构请求路由，按复杂度编排记忆、文档、GitHub、搜索和本机工具。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Agent runtime:</span> Built a <span className="font-semibold text-slate-900 dark:text-slate-200">Go</span> service over Feishu&apos;s persistent WebSocket channel and CardKit streaming API; a fast path handles ordinary chat while a context Planner orchestrates memory, documents, GitHub, search, and local tools for complex requests.</>}</li>
+                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">智能体运行时：</span>负责设计并实现基于飞书 WebSocket 长连接和 CardKit 流式 API 的 <span className="font-semibold text-slate-900 dark:text-slate-200">Go</span> 服务；用 Redis Streams 承载飞书入站消息队列，由消费者异步处理并支持失败重试与死信，Redis 不可用时回退本地工作池；按请求复杂度分流，编排记忆、文档、GitHub、搜索和本机工具。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Agent runtime:</span> Built a <span className="font-semibold text-slate-900 dark:text-slate-200">Go</span> service over Feishu&apos;s persistent WebSocket channel and CardKit streaming API; used Redis Streams as a durable inbound message queue with consumer retries and dead-letter handling, falling back to a local worker pool when Redis is unavailable; routed requests by complexity and orchestrated memory, documents, GitHub, search, and local tools.</>}</li>
                   <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">分层记忆与 RAG：</span>设计并搭建短期会话、本地 JSON 长期事实、聊天与图片归档的分层记忆；接入 LightRAG 构建独立的文档图谱/向量检索链路，优化上下文预算控制与隐私脱敏。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Layered memory and RAG:</span> Separated short-term session state, local JSON long-term facts, and chat/image archives; integrated LightRAG for an independent document graph and vector-retrieval path with context-budget controls and privacy redaction.</>}</li>
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">多模态与可见性：</span>接入 Apple Vision、飞书 OCR 与本地视觉模型，实现图片记忆召回和 Agent 阶段可见。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Multimodal and observable:</span> Combined Apple Vision, Feishu OCR, and local vision models for image-memory recall and visible Agent stages.</>}</li>
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">可靠性：</span>负责设计时效与成员校验、后台记忆整理、分阶段延迟日志、健康检查和降级路径；定位外部依赖不可用场景，构建回退到本地能力的恢复机制。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Reliability:</span> Added event-age and membership checks, background memory consolidation, phased latency logs, health checks, and graceful degradation; unavailable LightRAG, CardKit, OCR, or external-agent services fall back to local paths.</>}</li>
+                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">图片处理与可见性：</span>构建跨平台 OCR 与视觉理解链路，按环境调用 Apple Vision 或飞书 OCR，并由 Qwen3-VL 兜底图片语义理解；图片按 SHA-256 内容哈希归档，支持媒体检索与 Agent 阶段可见。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Image processing and observability:</span> Built a cross-platform OCR and vision pipeline using Apple Vision or Feishu OCR as available, with Qwen3-VL as a fallback for image understanding; archived images by SHA-256 content hash for media retrieval and visible Agent stages.</>}</li>
                 </ul>
               </div>
 
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
+              <div className="order-2 group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
-                    <span>{zh ? 'Sparse — 情侣日常分享小程序' : "Sparse — Couples' Daily Sharing Mini Program"}</span>
+                    <span>{zh ? 'Sparse — 日常分享小程序' : 'Sparse — Daily Sharing Mini Program'}</span>
                   </h3>
                   <div className="flex max-w-full flex-wrap items-center gap-2">
                     <a
@@ -426,61 +423,14 @@ export default function Resume() {
                   <InlineTech tech="CloudBase" label={zh ? '腾讯云 CloudBase' : 'Tencent CloudBase'} />
                 </p>
                 <ul className="ml-5 list-disc list-outside space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">架构与接口：</span>独立设计原生微信小程序与 CloudBase 云函数后端；以 action 路由承载 <span className="font-bold text-blue-600 dark:text-blue-400">67 个业务动作</span>，读写 <span className="font-bold text-blue-600 dark:text-blue-400">14 个文档型集合</span>，覆盖 15 个页面与功能模块。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Architecture &amp; API surface:</span> Designed the native WeChat Mini Program and CloudBase backend; routed <span className="font-bold text-blue-600 dark:text-blue-400">67 business actions</span> through one cloud function over <span className="font-bold text-blue-600 dark:text-blue-400">14 document collections</span>, covering 15 pages and feature modules.</>}</li>
+                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">云函数架构：</span>围绕 CloudBase 云函数设计 action 路由与服务边界，单个入口承载 <span className="font-bold text-blue-600 dark:text-blue-400">67 个业务动作</span>，读写 <span className="font-bold text-blue-600 dark:text-blue-400">14 个文档型集合</span>，覆盖 15 个页面与功能模块。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Cloud function architecture:</span> Designed the CloudBase function boundary and action router; one entry point handles <span className="font-bold text-blue-600 dark:text-blue-400">67 business actions</span> across <span className="font-bold text-blue-600 dark:text-blue-400">14 document collections</span>, covering 15 pages and feature modules.</>}</li>
                   <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">并发控制：</span>用 OPENID 在云函数侧重建成员身份与角色；以 <code className="rounded bg-slate-100 px-1 text-xs dark:bg-slate-800">spaceVersion</code> 乐观锁保护空间配置，用事务与条件更新处理宠物经验、清单状态等读改写，降低 lost update 风险。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Concurrency control:</span> Reconstructed member identity and roles from OPENID in the cloud function; used <code className="rounded bg-slate-100 px-1 text-xs dark:bg-slate-800">spaceVersion</code> optimistic locking plus transactions and conditional updates for read-modify-write paths such as pet XP and todo state.</>}</li>
                   <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">查询与冷启动：</span>拆分首页聚合查询和 30 秒轮询接口；按地点集合复用 30 分钟天气缓存、按 fileID 复用约 90 分钟临时 URL 缓存，并将 264KB 地理数据与二维码库移出冷启动路径。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Query path &amp; cold start:</span> Split the home aggregator from the 30-second polling path; reused 30-minute weather caches by location set and ~90-minute temp-URL caches by fileID, and moved 264KB of geo data plus the QR library off the cold-start path.</>}</li>
                   <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">安全边界：</span>邀请码采用短时 TTL 与唯一性校验，按 OPENID/IP 做进程级限流；小程序直连 CloudBase 云函数，不开放 HTTP 网关，并在写入文本和图片前执行服务端内容安全检查。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Security boundaries:</span> Added short-lived invite TTLs, uniqueness checks, and per-OPENID/IP process-level rate limits; kept the Mini Program on direct CloudBase function calls without an HTTP gateway, with server-side content checks before persisting text and images.</>}</li>
                 </ul>
               </div>
 
-              <div className="group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
-                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
-                  <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
-                    <ProjectIcon />
-                    <span>{zh ? 'KotobaFlow — 日语学习智能体' : 'KotobaFlow — Agentic Japanese Learning System'}</span>
-                  </h3>
-                  <div className="flex max-w-full flex-wrap items-center gap-2">
-                    <a
-                      href="https://github.com/yuaiccc/japanese-verb-master"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-blue-500 dark:text-slate-400 dark:hover:text-blue-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 px-2 py-0.5 rounded-md transition-colors"
-                      aria-label={zh ? '在 GitHub 查看 KotobaFlow' : 'View KotobaFlow on GitHub'}
-                    >
-                      <GithubIcon className="w-3.5 h-3.5" />
-                      <span className="hidden sm:inline">yuaiccc/japanese-verb-master</span>
-                    </a>
-                    <a
-                      href="https://japanese-verb-master.onrender.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 px-2.5 py-0.5 rounded-md transition-colors"
-                      aria-label={zh ? '打开 KotobaFlow 在线演示' : 'Open KotobaFlow live demo'}
-                    >
-                      <span aria-hidden="true">↗</span>
-                      <span>{zh ? '在线演示' : 'Live Demo'}</span>
-                    </a>
-                    <RepositoryActivity repository="yuaiccc/japanese-verb-master" zh={zh} />
-                  </div>
-                </div>
-                <p className="text-sm text-blue-500 font-medium mb-3 flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <InlineTech tech="LangGraph" />
-                  <span aria-hidden="true">+</span>
-                  <InlineTech tech="Node" />
-                  <span aria-hidden="true">+</span>
-                  <InlineTech tech="PostgreSQL" />
-                  <span aria-hidden="true">+</span>
-                  <InlineTech tech="SQLite" />
-                </p>
-                <ul className="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">检索管线：</span>在 <span className="font-semibold text-slate-900 dark:text-slate-200">SQLite FTS5 + sqlite-vec</span> 上实现 BM25 与向量双路并发召回，用 <span className="font-semibold text-slate-900 dark:text-slate-200">RRF</span> 融合候选，接入查询改写与候选集 LLM 精排；在 65 题黄金集上达到 <span className="font-bold text-blue-600 dark:text-blue-400">recall@1 63/65</span>、<span className="font-bold text-blue-600 dark:text-blue-400">MRR 0.977</span> 和 <span className="font-bold text-blue-600 dark:text-blue-400">NDCG@10 0.979</span>。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Retrieval pipeline:</span> Implemented concurrent BM25 and vector recall on <span className="font-semibold text-slate-900 dark:text-slate-200">SQLite FTS5 + sqlite-vec</span>, fused candidates with <span className="font-semibold text-slate-900 dark:text-slate-200">RRF</span>, and added query rewriting plus candidate-level LLM reranking; reached <span className="font-bold text-blue-600 dark:text-blue-400">recall@1 63/65</span>, <span className="font-bold text-blue-600 dark:text-blue-400">MRR 0.977</span>, and <span className="font-bold text-blue-600 dark:text-blue-400">NDCG@10 0.979</span> on a 65-question golden set.</>}</li>
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">评测与拒答：</span>构建 65 题域内集、10 题离题对抗集和 177 个语料块，统一统计 recall@k、MRR、NDCG、引用覆盖率与忠实度；实现向量距离预过滤和 LLM gatekeeper，将离题幻觉率 <span className="font-bold text-blue-600 dark:text-blue-400">从 10.7% 降至 0%</span>。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Evaluation &amp; abstention:</span> Built a 65-question in-domain set, a 10-question off-topic adversarial set, and 177 knowledge chunks; tracked recall@k, MRR, NDCG, citation coverage, and faithfulness, then used vector-distance prefiltering and an LLM gatekeeper to reduce off-topic hallucination <span className="font-bold text-blue-600 dark:text-blue-400">from 10.7% to 0%</span>.</>}</li>
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">智能体运行时：</span>设计并实现 <InlineTech tech="LangGraph" /> <span className="font-semibold text-slate-900 dark:text-slate-200">Planner → Researcher → Tutor → Memory Manager</span> StateGraph；通过 Annotation 状态传递计划、工具调用与记忆快照，以 SSE 输出 queue、tool、token 等轨迹，并持久化运行/子任务历史。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Agent runtime:</span> Implemented a <InlineTech tech="LangGraph" /> <span className="font-semibold text-slate-900 dark:text-slate-200">Planner → Researcher → Tutor → Memory Manager</span> StateGraph; passed plans, tool calls, and memory snapshots through typed annotations, streamed queue/tool/token traces over SSE, and persisted run and subagent-task history.</>}</li>
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">生产工程：</span>负责搭建 <InlineTech tech="Render" /> 同源 <InlineTech tech="Vue" /> + <InlineTech tech="Express" /> 服务，接入 <InlineTech tech="Supabase" label="Supabase PostgreSQL" /> 隔离游客与账号数据，构建 <InlineTech tech="Cloudflare" label="Turnstile" />、限流、浏览器侧 LLM BYOK、服务端验证的 <InlineTech tech="OKX" /> 支付链路，并完成 <span className="font-semibold text-slate-900 dark:text-slate-200">112 项测试</span>。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Production engineering:</span> Deployed a same-origin <InlineTech tech="Vue" /> + <InlineTech tech="Express" /> service on <InlineTech tech="Render" /> with <InlineTech tech="Supabase" label="Supabase PostgreSQL" />, isolated guest/account data, <InlineTech tech="Cloudflare" label="Turnstile" /> and rate limits, browser-side LLM BYOK, server-verified <InlineTech tech="OKX" /> payments, and <span className="font-semibold text-slate-900 dark:text-slate-200">112 passing tests</span>.</>}</li>
-                </ul>
-              </div>
-
-              <div className="group order-first mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-neutral-700 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
+              <div className="order-3 group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-neutral-700 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 flex-1 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
@@ -516,14 +466,13 @@ export default function Resume() {
                   {zh ? '辅助工具' : 'Supporting Tool'} | <InlineTech tech="Python" />
                 </p>
                 <ul className="ml-5 list-disc list-outside space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>{zh ? <>面向杭电同学，把费时费力的安全教育答题流程整理成可直接运行的脚本；粘贴课程链接后自动续做未完成内容、跳过已完成部分，结束后直接展示证书，减少重复操作。</> : <>Built for Hangzhou Dianzi University students, this turns the time-consuming safety-education workflow into a runnable script; it resumes unfinished content, skips completed work, and shows the certificate after the link is pasted.</>}</li>
+                  <li>{zh ? <>将费时费力的安全教育答题流程整理成可直接运行的脚本；粘贴课程链接后自动续做未完成内容、跳过已完成部分，结束后直接展示证书，减少重复操作。</> : <>Turned the time-consuming safety-education workflow into a runnable script; it resumes unfinished content, skips completed work, and shows the certificate after the link is pasted.</>}</li>
                   <li>{zh ? <>提供 Windows、macOS、Linux 一键安装和本地运行方式；网页中展示处理进度、异常和结果，不要求使用者理解脚本细节，拿到链接即可开始。</> : <>Packaged one-step local setup for Windows, macOS, and Linux; the web UI shows progress, errors, and results so users can start from a link without understanding the script internals.</>}</li>
                 </ul>
               </div>
+
               </div>
             </section>
-
-            <EducationSection zh={zh} />
 
             <section className="animate-fade-in-up delay-300">
               <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">{zh ? '技术栈' : 'Tech Stack'}</h2>

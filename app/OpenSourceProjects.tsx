@@ -113,24 +113,22 @@ const PROJECTS: Project[] = [
     id: 'cindy',
     name: 'yuaiccc/cindy',
     href: 'https://github.com/yuaiccc/cindy',
-    summary: 'Led the architecture for a visible multi-model, multi-harness AI agent workspace; built long-running collaboration, user interruption, and persistent task context.',
-    summaryZh: '主导多模型与多 Harness 协同架构设计；构建可见任务流、用户插话干预与长任务上下文保留；接入 Claude Code、Codex 等 Harness。',
+    summary: 'Cindy is built for long-running collaboration, bringing multiple Agent harnesses, models, and tools into one task workflow and supporting collaboration, switching, and context continuity across different `Harness × Model` combinations.',
+    summaryZh: 'Cindy 面向长任务协作，将多个 Agent Harness、模型与工具统一到同一任务工作流中，支持不同 `Harness × Model` 组合之间的协作、切换与上下文连续。',
     summaryPoints: [
-      'Led architecture for collaboration across multiple models and coding harnesses, including Claude Code and Codex.',
-      'Designed visible task flows, task plans, and collaboration-state synchronization so work stays observable and adjustable.',
-      'Implemented interruption, resume, and persistent context for long-running tasks after completion.',
-      'Contributed to model, plugin, and Agent reliability improvements; credited as yuaiccc (Junshan) in multiple Cindy release notes.',
+      'As a core active contributor, contributed 25+ merged PRs and was repeatedly listed in official release contributor credits; focused on Agent harnesses, model and tool calling, protocol bridges, provider compatibility, and client reliability.',
+      'Improved cross-harness session and collaboration-history compatibility; through protocol translation and context normalization, enabled task states and collaboration messages produced by different Agent runtimes to remain consumable across heterogeneous model paths.',
+      'Continuously optimized Agent Runtime and plugin infrastructure, addressing asynchronous state synchronization, race conditions, timeout recovery, session lifecycles, and cross-platform subprocess management.',
     ],
     summaryPointsZh: [
-      '主导多模型与多 Harness 协同架构设计，接入 Claude Code、Codex 等 Harness，支持在同一任务中协作。',
-      '设计并构建可见任务流、任务计划与协同状态同步，让执行过程可观察、可中途调整。',
-      '实现用户插话、中断与续跑机制，保留长任务上下文，支持完成后继续查看与跟进。',
-      '参与模型、插件与 Agent 稳定性优化；在多个 Cindy 版本公告中以 yuaiccc（Junshan）列入致谢。',
+      '作为核心活跃贡献者，累计贡献 25+ merged PR，多次进入官方版本贡献者名单；重点参与 Agent Harness、模型与工具调用、协议桥接、Provider 兼容与客户端可靠性建设。',
+      '完善跨 Harness 会话与协作历史兼容，通过协议转换与上下文归一化，使不同 Agent Runtime 产生的任务状态和协作消息能够在异构模型链路中继续消费。',
+      '持续优化 Agent Runtime 与插件 Infra，解决异步状态同步、竞态条件、超时恢复、Session 生命周期及跨平台子进程管理等稳定性问题。',
     ],
     description:
-      'Cindy is an open-source AI agent client built for visible, long-running collaboration. Multiple models and coding harnesses can work together in one task; the full process stays visible, users can intervene mid-task, and completed work remains available instead of disappearing. It supports Claude Code and Codex harnesses across desktop and mobile.',
+      'Cindy is built for long-running collaboration, bringing multiple Agent harnesses, models, and tools into one task workflow and supporting collaboration, switching, and context continuity across different `Harness × Model` combinations.',
     descriptionZh:
-      '主导设计并实现面向长任务协作的开源 AI Agent 客户端：接入多个模型与 Coding Harness，构建可见的任务过程与中途干预机制，并保留已完成任务上下文。',
+      'Cindy 面向长任务协作，将多个 Agent Harness、模型与工具统一到同一任务工作流中，支持不同 `Harness × Model` 组合之间的协作、切换与上下文连续。',
     showTapTapBrand: true,
     downloadHref: 'https://cindy.app/download/',
     officialHref: 'https://github.com/makecindy/cindy',
@@ -334,11 +332,16 @@ export default function OpenSourceProjects() {
 
               {!expanded && (
                 project.summaryPoints && project.summaryPointsZh ? (
-                  <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300 transition-all duration-300">
-                    {(zh ? project.summaryPointsZh : project.summaryPoints).map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
+                  <>
+                    <p className="mb-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300 transition-all duration-300">
+                      {zh ? project.summaryZh : project.summary}
+                    </p>
+                    <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300 transition-all duration-300">
+                      {(zh ? project.summaryPointsZh : project.summaryPoints).map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </>
                 ) : (
                   <p className="h-10 line-clamp-2 text-sm text-gray-600 dark:text-gray-300 transition-all duration-300">
                     {zh ? project.summaryZh : project.summary}
