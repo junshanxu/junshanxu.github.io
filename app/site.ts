@@ -79,7 +79,7 @@ export const PERSON_SCHEMA = {
   ],
   sameAs: [
     SITE_URL,
-    'https://github.com/yuaiccc',
+    'https://github.com/junshanxu',
     'https://modelscope.cn/profile/yuaiccc',
     'https://x.com/Hakikeioak',
   ],

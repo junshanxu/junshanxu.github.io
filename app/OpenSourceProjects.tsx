@@ -38,7 +38,7 @@ const CACHED_PROJECT_METRICS: Record<ProjectId, { stars: number; commits: number
 const repositoryStarsUrl = (repository: string) => `https://github.com/${repository}/stargazers`;
 
 const commitsUrl = (repository: string) =>
-  `https://github.com/${repository}/commits?author=yuaiccc`;
+  `https://github.com/${repository}/commits?author=junshanxu`;
 
 const useRepositoryStarCounts = () => {
   const [counts, setCounts] = useState<Partial<Record<ProjectId, number>>>(() =>
@@ -90,7 +90,7 @@ const useCommitCounts = () => {
       // stay under GitHub's tighter 10 req/min unauthenticated search limit.
       const entries = await Promise.all(
         (Object.entries(PROJECT_REPOSITORIES) as [ProjectId, string][]).map(async ([id, repository]) => {
-          const result = await fetchCommitCount(repository, 'yuaiccc', controller.signal);
+          const result = await fetchCommitCount(repository, 'junshanxu', controller.signal);
           return [id, result?.total_count ?? null] as const;
         }),
       );
@@ -111,8 +111,8 @@ const useCommitCounts = () => {
 const PROJECTS: Project[] = [
   {
     id: 'cindy',
-    name: 'yuaiccc/cindy',
-    href: 'https://github.com/yuaiccc/cindy',
+    name: 'junshanxu/cindy',
+    href: 'https://github.com/junshanxu/cindy',
     summary: 'Cindy is built for long-running collaboration, bringing multiple Agent harnesses, models, and tools into one task workflow and supporting collaboration, switching, and context continuity across different Harness × Model combinations.',
     summaryZh: 'Cindy 面向长任务协作，将多个 Agent Harness、模型与工具统一到同一任务工作流中，支持不同 Harness × Model 组合之间的协作、切换与上下文连续。',
     summaryPoints: [

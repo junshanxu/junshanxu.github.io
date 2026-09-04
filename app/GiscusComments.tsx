@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 
 const GISCUS_CONFIG = {
-  repo: 'yuaiccc/yuaiccc.github.io',
+  repo: 'junshanxu/junshanxu.github.io',
   repoId: 'R_kgDORgwUTA',
   category: 'General',
   categoryId: 'DIC_kwDORgwUTM4DCxSD',

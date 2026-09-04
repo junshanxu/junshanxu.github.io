@@ -37,13 +37,13 @@ const ZH = {
     content: '独立负责的多语种场景文字识别端到端项目。清洗并整理 113 万行语料库，修复开源工具的渲染 bug，生成 10 万余条高质量合成训练样本。将大规模小图转换为 LMDB 数据集，将 batch size 提升至 768，把验证时间从数小时压缩到数分钟。验证准确率达到 98.3%，解决了繁体中文与日文字符重叠的识别难题。',
   },
   'oss-japanese-verb': {
-    title:   'yuaiccc/japanese-verb-master',
+    title:   'junshanxu/japanese-verb-master',
     period:  '',
     tech:    'TypeScript',
     content: '生产环境部署的日语学习 Agentic RAG 系统，v1.3.0 已上线 Render。LangGraph 工作流（Planner → Researcher → Tutor → Memory Manager）通过 RRF 融合与 LLM 重排组合向量与 BM25 检索（MRR 0.977、recall@1 63/65）。双重弃答闸门将离题幻觉率降至 0%。使用 Supabase PostgreSQL 隔离游客与账号数据、Cloudflare Turnstile 与限流、浏览器侧 LLM BYOK，以及服务端验证的 OKX 支付。后端由 112 项测试覆盖。',
   },
   'oss-feishu-companion': {
-    title:   'yuaiccc/feishu-companion-bot',
+    title:   'junshanxu/feishu-companion-bot',
     period:  '',
     tech:    'Go',
     content: '基于 Go 的飞书伴随型智能体框架，具备 LLM 回复、记忆、安全过滤、图片记忆抽取和由 OceanBase / MySQL 兼容存储承载的 GraphRAG 关系层。将 Vite + React 控制台内嵌进 Go 二进制，用于上手引导、模块开关、数据库健康检查和心情/好感度趋势监控。',

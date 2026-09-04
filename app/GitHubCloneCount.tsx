@@ -17,7 +17,7 @@ type CloneSnapshot = {
 };
 
 const RAW_SNAPSHOT_URL =
-  `${GITHUB_RAW_BASE}/yuaiccc/yuaiccc.github.io/main/data/github_traffic.json`;
+  `${GITHUB_RAW_BASE}/junshanxu/junshanxu.github.io/main/data/github_traffic.json`;
 
 const CloneIcon = () => (
   <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">

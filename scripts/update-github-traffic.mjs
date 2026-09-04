@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const repository = process.env.GITHUB_TRAFFIC_REPOSITORY || 'yuaiccc/HDU-xiaoyuananquantong';
+const repository = process.env.GITHUB_TRAFFIC_REPOSITORY || 'junshanxu/HDU-xiaoyuananquantong';
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 const outputPath = new URL('../data/github_traffic.json', import.meta.url);
 

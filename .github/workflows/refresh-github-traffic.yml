@@ -19,7 +19,7 @@ jobs:
         run: node scripts/update-github-traffic.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
-          GITHUB_TRAFFIC_REPOSITORY: yuaiccc/HDU-xiaoyuananquantong
+          GITHUB_TRAFFIC_REPOSITORY: junshanxu/HDU-xiaoyuananquantong
 
       - name: Commit changed snapshot
         run: |

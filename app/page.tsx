@@ -58,7 +58,7 @@ const INLINE_TECH: Record<string, TechItem> = {
   Nginx: { name: 'Nginx', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg' },
 };
 
-const HDU_REPOSITORY = 'yuaiccc/HDU-xiaoyuananquantong';
+const HDU_REPOSITORY = 'junshanxu/HDU-xiaoyuananquantong';
 const HDU_CACHED_STAR_COUNT = 32;
 
 const useGitHubStarCount = (repository: string) => {
@@ -310,7 +310,7 @@ export default function Resume() {
                         <MailIcon className="h-5 w-5" />
                       </a>
                       <a
-                        href="https://github.com/yuaiccc"
+                        href="https://github.com/junshanxu"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-gray-300 dark:hover:bg-neutral-900 dark:hover:text-white"
@@ -364,16 +364,16 @@ export default function Resume() {
                   </h3>
                   <div className="flex w-full max-w-full flex-wrap items-center gap-2 sm:ml-auto sm:w-auto sm:justify-end">
                     <a
-                      href="https://github.com/yuaiccc/feishu-companion-bot"
+                      href="https://github.com/junshanxu/feishu-companion-bot"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-blue-500 dark:text-slate-400 dark:hover:text-blue-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 px-2 py-0.5 rounded-md transition-colors"
                       aria-label={zh ? '在 GitHub 查看飞书叶' : 'View Feishuye on GitHub'}
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
-                      <span className="hidden sm:inline">yuaiccc/feishu-companion-bot</span>
+                      <span className="hidden sm:inline">junshanxu/feishu-companion-bot</span>
                     </a>
-                    <RepositoryActivity repository="yuaiccc/feishu-companion-bot" zh={zh} />
+                    <RepositoryActivity repository="junshanxu/feishu-companion-bot" zh={zh} />
                   </div>
                 </div>
                 <p className="text-sm text-blue-500 font-medium mb-3 flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -397,14 +397,14 @@ export default function Resume() {
                   </h3>
                   <div className="flex max-w-full flex-wrap items-center gap-2">
                     <a
-                      href="https://github.com/yuaiccc/couple-space-miniprogram"
+                      href="https://github.com/junshanxu/couple-space-miniprogram"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-500 transition-colors hover:bg-slate-200 hover:text-blue-500 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-blue-400"
                       aria-label={zh ? '在 GitHub 查看 Sparse' : 'View Sparse on GitHub'}
                     >
                       <GithubIcon className="h-3.5 w-3.5" />
-                      <span className="hidden sm:inline">yuaiccc/couple-space-miniprogram</span>
+                      <span className="hidden sm:inline">junshanxu/couple-space-miniprogram</span>
                     </a>
                     <Image
                       src="/sparse-qr.jpg"
@@ -413,7 +413,7 @@ export default function Resume() {
                       height={72}
                       className="h-14 w-14 rounded-full border border-slate-200 bg-white p-1 dark:border-slate-600"
                     />
-                    <RepositoryActivity repository="yuaiccc/couple-space-miniprogram" zh={zh} />
+                    <RepositoryActivity repository="junshanxu/couple-space-miniprogram" zh={zh} />
                   </div>
                 </div>
                 <p className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-blue-500">
