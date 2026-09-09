@@ -1,17 +1,12 @@
 {
   "repository": "junshanxu/HDU-xiaoyuananquantong",
   "window_days": 14,
-  "count": 267,
+  "count": 266,
   "uniques": 125,
-  "cumulative_count": 693,
+  "cumulative_count": 696,
   "cumulative_since": "2026-08-13T04:36:55.000Z",
-  "counted_through": "2026-09-07T00:00:00Z",
+  "counted_through": "2026-09-08T00:00:00Z",
   "clones": [
-    {
-      "timestamp": "2026-08-25T00:00:00Z",
-      "count": 4,
-      "uniques": 4
-    },
     {
       "timestamp": "2026-08-26T00:00:00Z",
       "count": 19,
@@ -76,7 +71,12 @@
       "timestamp": "2026-09-07T00:00:00Z",
       "count": 2,
       "uniques": 2
+    },
+    {
+      "timestamp": "2026-09-08T00:00:00Z",
+      "count": 3,
+      "uniques": 3
     }
   ],
-  "fetched_at": "2026-09-08T09:41:31.778Z"
+  "fetched_at": "2026-09-09T21:42:03.631Z"
 }
