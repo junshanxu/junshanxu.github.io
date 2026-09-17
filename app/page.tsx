@@ -253,6 +253,46 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
   </section>
 );
 
+const SpatialIntelligenceCampSection = ({ zh }: { zh: boolean }) => (
+  <section className="animate-fade-in-up delay-100">
+    <h2 className="mb-4 border-l-[3px] border-blue-500 pl-3 text-xl font-bold text-slate-800 dark:text-slate-100">
+      {zh ? '竞赛与实践' : 'Competitions & Practice'}
+    </h2>
+    <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
+      <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <h3 className="flex min-w-0 flex-1 items-center gap-2 text-lg font-bold text-slate-900 dark:text-slate-100">
+          <ProjectIcon />
+          <span>{zh ? '群核科技空间智能开发者集训营（第二期）' : 'Kujiale Spatial Intelligence Developer Camp (Season 2)'}</span>
+        </h3>
+        <span className="inline-flex w-fit items-center rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700 dark:border-blue-900/70 dark:bg-blue-950/30 dark:text-blue-300">
+          {zh ? '团队第二名' : 'Team, 2nd Place'}
+        </span>
+      </div>
+      <p className="mb-3 text-sm text-blue-600 dark:text-blue-300">
+        {zh ? '2026.09｜48 小时空间智能产品实战与路演' : 'Sep 2026 · 48-hour spatial-intelligence product sprint and demo day'}
+      </p>
+      <p className="text-sm leading-6 text-gray-700 dark:text-gray-300">
+        {zh
+          ? '围绕租房信息不对称场景，参与团队完成从需求定义、MVP 设计到可演示 Demo 的产品闭环；整合空间重建、3D 看房、家具试摆与房源发布，并完成现场路演。'
+          : 'Worked with the team on a product loop for reducing information asymmetry in rentals, from problem definition and MVP design to a demoable delivery; combined spatial reconstruction, 3D viewing, furniture placement, and listing publication for the final pitch.'}
+      </p>
+      <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-medium">
+        <a href="https://mp.weixin.qq.com/s/3nyBmGqHeMQsDc8NFgHmLw" target="_blank" rel="noopener noreferrer" className="rounded-md bg-slate-100 px-2 py-1 text-slate-600 transition-colors hover:bg-slate-200 hover:text-blue-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-blue-300">
+          {zh ? '活动报道' : 'Event coverage'}
+        </a>
+        <a href="https://github.com/fengye1003/AholoHomeService" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 text-slate-600 transition-colors hover:bg-slate-200 hover:text-blue-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-blue-300">
+          <GithubIcon className="h-3.5 w-3.5" />
+          AholoHomeService
+        </a>
+        <a href="https://github.com/xyh202131/rental-system-landlord" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 text-slate-600 transition-colors hover:bg-slate-200 hover:text-blue-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-blue-300">
+          <GithubIcon className="h-3.5 w-3.5" />
+          {zh ? '房东端源码' : 'Landlord source'}
+        </a>
+      </div>
+    </article>
+  </section>
+);
+
 export default function Resume() {
   const language = useResumeLanguage();
   const zh = language === 'zh';
@@ -351,7 +391,9 @@ export default function Resume() {
           <div className="space-y-8 p-5 sm:p-8 md:p-10">
             <EducationSection zh={zh} />
 
-            <section className="animate-fade-in-up delay-100">
+            <SpatialIntelligenceCampSection zh={zh} />
+
+            <section className="animate-fade-in-up delay-200">
               <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">Pinned</h2>
 
               <OpenSourceProjects />
