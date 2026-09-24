@@ -185,6 +185,16 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
     <h2 className="academic-section-title">{zh ? '教育经历' : 'Education'}</h2>
     <div className="academic-education-entry">
       <div className="academic-education-school">
+        <h3 className="text-base font-bold text-slate-900 sm:text-lg dark:text-slate-100">
+          {zh ? '杭州电子科技大学' : 'Hangzhou Dianzi University'}
+        </h3>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          {zh ? '研究方向：数字人文 · 2026.09—至今' : 'Research area: Digital Humanities · Sep 2026–Present'}
+        </p>
+      </div>
+    </div>
+    <div className="academic-education-entry">
+      <div className="academic-education-school">
         <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <span className="inline-flex h-12 w-12 shrink-0 items-center overflow-hidden rounded-full">
@@ -208,6 +218,19 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
         </p>
       </div>
     </div>
+  </section>
+);
+
+const AwardsSection = ({ zh }: { zh: boolean }) => (
+  <section id="awards" className="academic-section animate-fade-in-up delay-100">
+    <h2 className="academic-section-title">{zh ? '荣誉与奖项' : 'Awards'}</h2>
+    <article className="academic-award-entry">
+      <div className="academic-award-heading">
+        <h3>{zh ? '魔搭社区 × 群核科技 Supercore 空间智能开发者集训营（第二期）' : 'ModelScope × Kujiale Supercore Spatial Intelligence Developer Camp (Season 2)'}</h3>
+        <span className="academic-award-result">{zh ? '团队二等奖' : 'Team Second Prize'}</span>
+      </div>
+      <p className="academic-award-meta">{zh ? '2026.09' : 'Sep 2026'}</p>
+    </article>
   </section>
 );
 
@@ -313,6 +336,7 @@ export default function Resume() {
                 ['news', zh ? '动态' : 'News'],
                 ['projects', zh ? '项目' : 'Projects'],
                 ['education', zh ? '教育' : 'Education'],
+                ['awards', zh ? '奖项' : 'Awards'],
                 ['skills', zh ? '技能' : 'Skills'],
               ].map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}
             </nav>
@@ -416,6 +440,8 @@ export default function Resume() {
             </section>
 
             <EducationSection zh={zh} />
+
+            <AwardsSection zh={zh} />
 
             <section id="skills" className="academic-section animate-fade-in-up delay-300">
               <h2 className="academic-section-title">{zh ? '技能' : 'Skills'}</h2>
