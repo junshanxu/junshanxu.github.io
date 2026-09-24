@@ -84,53 +84,11 @@ const TECH_GROUPS: TechGroup[] = [
     title: 'Core Languages',
     featured: true,
     items: [
+      { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg' },
       { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
       { name: 'Go', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg' },
       { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
       { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
-    ],
-  },
-  {
-    title: 'AI & CS',
-    items: [
-      { name: 'Hugging Face', icon: '/tech/huggingface.svg' },
-      { name: 'LangChain / LangGraph', icon: 'https://cdn.simpleicons.org/langchain/1C3C3C', invertDark: true },
-      { name: 'Claude Code', icon: '/tech/claude.svg' },
-      { name: 'OpenAI Codex', icon: '/tech/openai.svg', invertDark: true },
-      { name: 'Dify', icon: 'https://cdn.simpleicons.org/dify/000000', invertDark: true },
-    ],
-  },
-  {
-    title: 'Engineering',
-    items: [
-      { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg' },
-      { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg' },
-      { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-      { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', invertDark: true },
-      { name: 'Vue', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
-      { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
-      { name: '微信小程序', icon: 'https://7463-tcb-advanced-a656fc-1257967285.tcb.qcloud.la/assets/wechat-devtools-logo.png?v=2' },
-    ],
-  },
-  {
-    title: 'Backend & Data',
-    items: [
-      { name: 'Spring', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg' },
-      { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
-      { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg', invertDark: true },
-      { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
-      { name: 'SQLite', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg' },
-      { name: 'Redis', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg' },
-      { name: 'RabbitMQ', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg' },
-    ],
-  },
-  {
-    title: 'DevOps & Tools',
-    items: [
-      { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-      { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
-      { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-      { name: 'Vercel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg', invertDark: true },
     ],
   },
 ];
@@ -223,10 +181,10 @@ const LanguageSummary = ({ language }: { language: 'en' | 'zh' }) => {
 };
 
 const EducationSection = ({ zh }: { zh: boolean }) => (
-  <section className="animate-fade-in-up delay-400">
-    <h2 className="mb-4 border-l-[3px] border-blue-500 pl-3 text-xl font-bold text-slate-800 dark:text-slate-100">{zh ? '教育经历' : 'Education'}</h2>
-    <div className="divide-y divide-slate-200 dark:divide-slate-700">
-      <div className="rounded-lg border border-slate-200 bg-white px-4 py-4 shadow-sm dark:border-neutral-800 dark:bg-[#141413] sm:px-5">
+  <section id="education" className="academic-section animate-fade-in-up delay-400">
+    <h2 className="academic-section-title">{zh ? '教育经历' : 'Education'}</h2>
+    <div className="academic-education-entry">
+      <div className="academic-education-school">
         <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <span className="inline-flex h-12 w-12 shrink-0 items-center overflow-hidden rounded-full">
@@ -241,7 +199,7 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
         </div>
         <div className="mb-2 flex flex-wrap items-center gap-2 text-gray-700 dark:text-gray-300">
           <span>{zh ? '2022-2026 人工智能 工学学士' : '2022–2026 B.Eng. in Artificial Intelligence'} / <span className="font-medium text-blue-500">{zh ? '专业前 30%' : 'Top 30% in major'}</span></span>
-          <span className="inline-block rounded-full border border-slate-300 px-3 py-1 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-400">
+          <span className="text-sm text-slate-600 dark:text-slate-400">
           {zh ? '学业优秀奖学金' : 'Academic Excellence Scholarship'}
           </span>
         </div>
@@ -250,46 +208,6 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
         </p>
       </div>
     </div>
-  </section>
-);
-
-const SpatialIntelligenceCampSection = ({ zh }: { zh: boolean }) => (
-  <section className="animate-fade-in-up delay-100">
-    <h2 className="mb-4 border-l-[3px] border-blue-500 pl-3 text-xl font-bold text-slate-800 dark:text-slate-100">
-      {zh ? '竞赛与实践' : 'Competitions & Practice'}
-    </h2>
-    <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
-      <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center">
-        <h3 className="flex min-w-0 flex-1 items-center gap-2 text-lg font-bold text-slate-900 dark:text-slate-100">
-          <ProjectIcon />
-          <span>{zh ? '魔搭社区 × 群核科技空间智能开发者集训营（第二期）' : 'ModelScope × Kujiale Spatial Intelligence Developer Camp (Season 2)'}</span>
-        </h3>
-        <span className="inline-flex w-fit items-center rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700 dark:border-blue-900/70 dark:bg-blue-950/30 dark:text-blue-300">
-          {zh ? '团队第二名' : 'Team, 2nd Place'}
-        </span>
-      </div>
-      <p className="mb-3 text-sm text-blue-600 dark:text-blue-300">
-        {zh ? '2026.09｜48 小时空间智能产品实战与路演' : 'Sep 2026 · 48-hour spatial-intelligence product sprint and demo day'}
-      </p>
-      <p className="text-sm leading-6 text-gray-700 dark:text-gray-300">
-        {zh
-          ? '围绕租房信息不对称场景，参与团队完成从需求定义、MVP 设计到可演示 Demo 的产品闭环；整合空间重建、3D 看房、家具试摆与房源发布，并完成现场路演。'
-          : 'Worked with the team on a product loop for reducing information asymmetry in rentals, from problem definition and MVP design to a demoable delivery; combined spatial reconstruction, 3D viewing, furniture placement, and listing publication for the final pitch.'}
-      </p>
-      <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-medium">
-        <a href="https://mp.weixin.qq.com/s/3nyBmGqHeMQsDc8NFgHmLw" target="_blank" rel="noopener noreferrer" className="rounded-md bg-slate-100 px-2 py-1 text-slate-600 transition-colors hover:bg-slate-200 hover:text-blue-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-blue-300">
-          {zh ? '活动报道' : 'Event coverage'}
-        </a>
-        <a href="https://github.com/fengye1003/AholoHomeService" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 text-slate-600 transition-colors hover:bg-slate-200 hover:text-blue-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-blue-300">
-          <GithubIcon className="h-3.5 w-3.5" />
-          AholoHomeService
-        </a>
-        <a href="https://github.com/xyh202131/rental-system-landlord" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 text-slate-600 transition-colors hover:bg-slate-200 hover:text-blue-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-blue-300">
-          <GithubIcon className="h-3.5 w-3.5" />
-          {zh ? '房东端源码' : 'Landlord source'}
-        </a>
-      </div>
-    </article>
   </section>
 );
 
@@ -306,17 +224,17 @@ export default function Resume() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}
       />
       <ScrollProgress />
-      <div className="min-h-screen bg-slate-50 px-3 py-4 font-sans text-gray-800 transition-colors duration-300 dark:bg-[#141413] dark:text-gray-100 sm:px-6 sm:py-8 lg:px-8">
+      <div className="academic-page min-h-screen bg-[#f5f6f8] px-3 py-5 font-sans text-gray-800 transition-colors duration-300 dark:bg-[#17191d] dark:text-gray-100 sm:px-6 sm:py-8 lg:px-8">
         <div
           lang={language === 'en' ? 'en' : 'zh-CN'}
-          className="resume-card relative mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-200 transition-colors duration-300 dark:bg-[#141413] dark:ring-neutral-800"
+          className="resume-card relative mx-auto max-w-5xl overflow-hidden bg-white transition-colors duration-300 dark:bg-[#17191d]"
         >
           {/* === 头部信息 === */}
-          <header className="border-b border-slate-100 bg-white p-5 text-slate-900 transition-colors duration-300 dark:border-neutral-800 dark:bg-[#141413] dark:text-white sm:p-6 md:p-8">
-            <div className="flex flex-col items-center gap-5 md:flex-row">
-              <div className="flex flex-col items-center gap-5 md:flex-row">
+          <header id="about" className="academic-profile-header bg-white p-5 text-slate-900 transition-colors duration-300 dark:bg-[#17191d] dark:text-white sm:p-8 md:p-10">
+            <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+              <div className="flex w-full flex-col items-center gap-5 sm:flex-row sm:items-center">
                 <div
-                  className="relative aspect-[1290/1733] w-20 flex-shrink-0 select-none overflow-hidden rounded-lg shadow-sm ring-1 ring-slate-200 dark:ring-white/10 sm:w-24"
+                  className="relative aspect-[1290/1733] w-24 flex-shrink-0 select-none overflow-hidden rounded-sm ring-1 ring-slate-200 dark:ring-white/10 sm:w-28"
                   onContextMenu={(event) => event.preventDefault()}
                 >
                   <Image
@@ -329,17 +247,21 @@ export default function Resume() {
                     draggable={false}
                   />
                 </div>
-                <div className="text-center md:text-left">
+                <div className="academic-profile-copy text-center sm:text-left">
                   <h1
                     title="许君山"
-                    className="cursor-help text-4xl font-semibold text-slate-950 dark:text-white"
+                    className="cursor-help text-4xl font-semibold text-slate-950 dark:text-white sm:text-5xl"
                   >
                     {zh ? '许君山' : 'Xu Junshan'}
                   </h1>
                   <LanguageSummary language={language} />
+                  <p className="academic-interests">
+                    <span>{zh ? '关注方向' : 'Research interests'}</span>
+                    {zh ? 'AI Agent、MLLM、World Model' : 'AI agents, MLLMs, and world models'}
+                  </p>
                   <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 md:justify-start">
                     <LanguageToggle />
-                    <span className="basis-full text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300 sm:basis-auto">{zh ? '如何联系我？' : 'How to reach me?'}</span>
+                    <span className="basis-full text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300 sm:basis-auto">{zh ? '联系' : 'Contact'}</span>
                     <nav className="flex items-center gap-1" aria-label={zh ? '联系方式' : 'Contact links'}>
                       <a
                         href="mailto:yuaiccc@aliyun.com"
@@ -386,21 +308,33 @@ export default function Resume() {
                 </div>
               </div>
             </div>
+            <nav className="academic-nav" aria-label={zh ? '页面导航' : 'Page navigation'}>
+              {[
+                ['news', zh ? '动态' : 'News'],
+                ['projects', zh ? '项目' : 'Projects'],
+                ['education', zh ? '教育' : 'Education'],
+                ['skills', zh ? '技能' : 'Skills'],
+              ].map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}
+            </nav>
           </header>
 
-          <div className="space-y-8 p-5 sm:p-8 md:p-10">
-            <EducationSection zh={zh} />
+          <main className="academic-content space-y-10 px-5 py-7 sm:px-8 sm:py-10 md:px-12">
+            <section id="news" className="academic-section">
+              <h2 className="academic-section-title">{zh ? '近期动态' : 'News'}</h2>
+              <ul className="academic-news-list">
+                <li><time>2026</time><span>{zh ? '作为 Cindy 核心活跃贡献者，累计贡献 25+ merged PR，多次进入官方版本贡献者名单。' : 'Contributed 25+ merged PRs to Cindy and appeared in official release contributor credits.'}</span></li>
+              </ul>
+            </section>
 
-            <section className="animate-fade-in-up delay-200">
-              <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">Pinned</h2>
-
+            <section id="projects" className="academic-section academic-projects">
+              <h2 className="academic-section-title">{zh ? '项目与开源' : 'Selected Projects'}</h2>
               <OpenSourceProjects />
               <div className="flex flex-col">
-              <div className="order-2 group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
+              <div className="academic-feature-project order-2 group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-slate-300 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 flex-1 flex-wrap items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
-                    <span>{zh ? 'Sparse — 日常分享小程序' : 'Sparse — Daily Sharing Mini Program'}</span>
+                    <span>Sparse</span>
                   </h3>
                   <div className="flex max-w-full flex-wrap items-center gap-2">
                     <a
@@ -430,18 +364,18 @@ export default function Resume() {
                   <InlineTech tech="CloudBase" label={zh ? '腾讯云 CloudBase' : 'Tencent CloudBase'} />
                 </p>
                 <ul className="ml-5 list-disc list-outside space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">云函数架构：</span>围绕 CloudBase 云函数设计 action 路由与服务边界，单个入口承载 <span className="font-bold text-blue-600 dark:text-blue-400">67 个业务动作</span>，读写 <span className="font-bold text-blue-600 dark:text-blue-400">14 个文档型集合</span>，覆盖 15 个页面与功能模块。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Cloud function architecture:</span> Designed the CloudBase function boundary and action router; one entry point handles <span className="font-bold text-blue-600 dark:text-blue-400">67 business actions</span> across <span className="font-bold text-blue-600 dark:text-blue-400">14 document collections</span>, covering 15 pages and feature modules.</>}</li>
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">并发控制：</span>用 OPENID 在云函数侧重建成员身份与角色；以 <code className="rounded bg-slate-100 px-1 text-xs dark:bg-slate-800">spaceVersion</code> 乐观锁保护空间配置，用事务与条件更新处理宠物经验、清单状态等读改写，降低 lost update 风险。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Concurrency control:</span> Reconstructed member identity and roles from OPENID in the cloud function; used <code className="rounded bg-slate-100 px-1 text-xs dark:bg-slate-800">spaceVersion</code> optimistic locking plus transactions and conditional updates for read-modify-write paths such as pet XP and todo state.</>}</li>
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">查询与冷启动：</span>拆分首页聚合查询和 30 秒轮询接口；按地点集合复用 30 分钟天气缓存、按 fileID 复用约 90 分钟临时 URL 缓存，并将 264KB 地理数据与二维码库移出冷启动路径。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Query path &amp; cold start:</span> Split the home aggregator from the 30-second polling path; reused 30-minute weather caches by location set and ~90-minute temp-URL caches by fileID, and moved 264KB of geo data plus the QR library off the cold-start path.</>}</li>
-                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">安全边界：</span>邀请码采用短时 TTL 与唯一性校验，按 OPENID/IP 做进程级限流；小程序直连 CloudBase 云函数，不开放 HTTP 网关，并在写入文本和图片前执行服务端内容安全检查。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Security boundaries:</span> Added short-lived invite TTLs, uniqueness checks, and per-OPENID/IP process-level rate limits; kept the Mini Program on direct CloudBase function calls without an HTTP gateway, with server-side content checks before persisting text and images.</>}</li>
+                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">云端架构与服务边界：</span>设计 CloudBase 云函数分层与 action 路由，让单一入口承接 <span className="font-bold text-blue-600 dark:text-blue-400">67 项业务操作</span>，并将数据访问映射到 <span className="font-bold text-blue-600 dark:text-blue-400">14 个集合</span>，支撑 15 个页面与功能模块。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Cloud architecture &amp; service boundaries:</span> Designed the CloudBase function layers and action router, mapping <span className="font-bold text-blue-600 dark:text-blue-400">67 business actions</span> to <span className="font-bold text-blue-600 dark:text-blue-400">14 collections</span> across 15 pages and feature modules.</>}</li>
+                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">并发与数据一致性：</span>在云函数侧基于 OPENID 校验成员身份与角色；用 <code className="rounded bg-slate-100 px-1 text-xs dark:bg-slate-800">spaceVersion</code> 乐观锁保护共享配置，并对读改写操作采用事务或条件更新，避免并发覆盖。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Concurrency &amp; consistency:</span> Validated member identity and roles from OPENID in cloud functions; protected shared configuration with <code className="rounded bg-slate-100 px-1 text-xs dark:bg-slate-800">spaceVersion</code> optimistic locking and used transactions or conditional writes for read-modify-write paths to prevent lost updates.</>}</li>
+                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">查询性能与冷启动：</span>拆分首页聚合和 30 秒轮询路径；按地点集合、fileID 复用天气与临时 URL 缓存，并将 264KB 地理数据和二维码库移出云函数冷启动加载路径。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Query performance &amp; cold starts:</span> Separated home aggregation from 30-second polling; reused weather and temporary-URL caches by location set and fileID, and moved 264KB of geo data plus the QR library off the function cold-start path.</>}</li>
+                  <li>{zh ? <><span className="font-bold text-slate-800 dark:text-slate-100">安全与访问控制：</span>小程序直连 CloudBase 云函数，不暴露 HTTP 网关；通过短时且唯一的邀请码、基于 OPENID/IP 的限流，以及写入前的文本与图片内容检查控制访问和输入边界。</> : <><span className="font-bold text-slate-800 dark:text-slate-100">Security &amp; access control:</span> Kept the Mini Program on direct CloudBase function calls without exposing an HTTP gateway; bounded access and input with short-lived unique invites, OPENID/IP rate limits, and text/image checks before writes.</>}</li>
                 </ul>
               </div>
 
-              <div className="order-3 group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-neutral-700 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
+              <div className="academic-feature-project order-3 group mb-4 rounded-lg border border-slate-200 bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-neutral-700 hover:shadow-sm dark:border-neutral-800 dark:bg-[#141413] dark:hover:border-neutral-700 sm:p-5">
                 <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <h3 className="flex min-w-0 flex-1 items-center gap-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-blue-500 dark:text-slate-100">
                     <ProjectIcon />
-                    <span className="min-w-0 break-words">{zh ? '网页答题自动化脚本' : 'Browser Answer Automation Script'}</span>
+                    <span className="min-w-0 break-words">{zh ? 'HDU安全答题助手-校园项目' : 'HDU Safety Education Answer Assistant — Campus Project'}</span>
                   </h3>
                   <div className="flex max-w-full flex-wrap items-center gap-2">
                     <a
@@ -481,11 +415,11 @@ export default function Resume() {
               </div>
             </section>
 
-            <SpatialIntelligenceCampSection zh={zh} />
+            <EducationSection zh={zh} />
 
-            <section className="animate-fade-in-up delay-300">
-              <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 border-l-[3px] border-blue-500 pl-3 mb-4">{zh ? '技术栈' : 'Tech Stack'}</h2>
-              <div className="space-y-4 rounded-lg border border-gray-200 bg-slate-50 p-5 dark:border-neutral-800 dark:bg-[#141413]">
+            <section id="skills" className="academic-section animate-fade-in-up delay-300">
+              <h2 className="academic-section-title">{zh ? '技能' : 'Skills'}</h2>
+              <div className="academic-skills space-y-4 rounded-lg border border-gray-200 bg-slate-50 p-5 dark:border-neutral-800 dark:bg-[#17191d]">
                 {TECH_GROUPS.map((group) => (
                   <div
                     key={group.title}
@@ -544,7 +478,7 @@ export default function Resume() {
               </div>
               )}
             </footer>
-          </div>
+          </main>
         </div>
       </div>
     </>
