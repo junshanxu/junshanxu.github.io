@@ -189,7 +189,7 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
           {zh ? '杭州电子科技大学' : 'Hangzhou Dianzi University'}
         </h3>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-          {zh ? '研究方向：数字人文 · 2026.09—至今' : 'Research area: Digital Humanities · Sep 2026–Present'}
+          {zh ? '2026.09—至今' : 'Sep 2026–Present'}
         </p>
       </div>
     </div>
@@ -197,10 +197,6 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
       <div className="academic-education-school">
         <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <span className="inline-flex h-12 w-12 shrink-0 items-center overflow-hidden rounded-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/ncwu-logo.png" alt="NCWU logo" className="h-12 max-w-none w-auto" />
-            </span>
             <h3 className="text-base font-bold text-slate-900 sm:text-lg dark:text-slate-100">
               {zh ? '华北水利水电大学' : 'North China University of Water Resources and Electric Power'}
               <span className="mt-0.5 block text-xs font-medium text-slate-500 sm:text-sm dark:text-slate-400">{zh ? 'North China University of Water Resources and Electric Power（NCWU）' : '华北水利水电大学（NCWU）'}</span>
@@ -214,7 +210,7 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
           </span>
         </div>
         <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          <span className="font-medium">{zh ? '核心课程：' : 'Core coursework:'}</span> {zh ? '深度学习、计算机操作系统、数据结构、线性代数、自然语言处理、计算机网络、软件工程' : 'Deep Learning, Computer Operating Systems, Data Structures, Linear Algebra, Natural Language Processing, Computer Networks, and Software Engineering'}
+          <span className="font-medium">{zh ? '核心课程：' : 'Core coursework:'}</span> {zh ? '深度学习、机器学习、数据结构、自然语言处理' : 'Deep Learning, Machine Learning, Data Structures, and Natural Language Processing'}
         </p>
       </div>
     </div>
