@@ -221,19 +221,6 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
   </section>
 );
 
-const AwardsSection = ({ zh }: { zh: boolean }) => (
-  <section id="awards" className="academic-section animate-fade-in-up delay-100">
-    <h2 className="academic-section-title">{zh ? '荣誉与奖项' : 'Awards'}</h2>
-    <article className="academic-award-entry">
-      <div className="academic-award-heading">
-        <h3>{zh ? '魔搭社区 × 群核科技 Supercore 空间智能开发者集训营（第二期）' : 'ModelScope × Kujiale Supercore Spatial Intelligence Developer Camp (Season 2)'}</h3>
-        <span className="academic-award-result">{zh ? '团队二等奖' : 'Team Second Prize'}</span>
-      </div>
-      <p className="academic-award-meta">{zh ? '2026.09' : 'Sep 2026'}</p>
-    </article>
-  </section>
-);
-
 export default function Resume() {
   const language = useResumeLanguage();
   const zh = language === 'zh';
@@ -336,7 +323,6 @@ export default function Resume() {
                 ['news', zh ? '动态' : 'News'],
                 ['projects', zh ? '项目' : 'Projects'],
                 ['education', zh ? '教育' : 'Education'],
-                ['awards', zh ? '奖项' : 'Awards'],
                 ['skills', zh ? '技能' : 'Skills'],
               ].map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}
             </nav>
@@ -346,6 +332,7 @@ export default function Resume() {
             <section id="news" className="academic-section">
               <h2 className="academic-section-title">{zh ? '近期动态' : 'News'}</h2>
               <ul className="academic-news-list">
+                <li><time>2026.09</time><span>{zh ? '参加魔搭社区 × 群核科技 Supercore 空间智能开发者集训营（第二期），团队获二等奖。' : 'Won second place as a team at the ModelScope × Kujiale Supercore Spatial Intelligence Developer Camp (Season 2).'}</span></li>
                 <li><time>2026</time><span>{zh ? '作为 Cindy 核心活跃贡献者，累计贡献 25+ merged PR，多次进入官方版本贡献者名单。' : 'Contributed 25+ merged PRs to Cindy and appeared in official release contributor credits.'}</span></li>
               </ul>
             </section>
@@ -440,8 +427,6 @@ export default function Resume() {
             </section>
 
             <EducationSection zh={zh} />
-
-            <AwardsSection zh={zh} />
 
             <section id="skills" className="academic-section animate-fade-in-up delay-300">
               <h2 className="academic-section-title">{zh ? '技能' : 'Skills'}</h2>
