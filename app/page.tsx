@@ -261,10 +261,6 @@ export default function Resume() {
                     {zh ? '许君山' : 'Xu Junshan'}
                   </h1>
                   <LanguageSummary language={language} />
-                  <p className="academic-interests">
-                    <span>{zh ? '关注方向' : 'Research interests'}</span>
-                    {zh ? 'AI Agent、MLLM、World Model' : 'AI agents, MLLMs, and world models'}
-                  </p>
                   <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 md:justify-start">
                     <LanguageToggle />
                     <span className="basis-full text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300 sm:basis-auto">{zh ? '联系' : 'Contact'}</span>
