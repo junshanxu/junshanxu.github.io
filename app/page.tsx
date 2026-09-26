@@ -187,6 +187,9 @@ const EducationSection = ({ zh }: { zh: boolean }) => (
       <div className="academic-education-school">
         <h3 className="text-base font-bold text-slate-900 sm:text-lg dark:text-slate-100">
           {zh ? '杭州电子科技大学' : 'Hangzhou Dianzi University'}
+          <span className="mt-0.5 block text-xs font-medium text-slate-500 sm:text-sm dark:text-slate-400">
+            {zh ? 'Hangzhou Dianzi University' : '杭州电子科技大学'}
+          </span>
         </h3>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
           {zh ? '2026.09—至今' : 'Sep 2026–Present'}
@@ -282,6 +285,19 @@ export default function Resume() {
                         title={zh ? '打开我的 GitHub 主页' : 'Open my GitHub profile'}
                       >
                         <GithubIcon className="h-5 w-5" />
+                      </a>
+                      <a
+                        href="https://orcid.org/0009-0008-1042-8314"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-[#a6ce39] transition hover:bg-slate-100 dark:hover:bg-neutral-900"
+                        aria-label="ORCID: 0009-0008-1042-8314"
+                        title="ORCID: 0009-0008-1042-8314"
+                      >
+                        <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+                          <circle cx="12" cy="12" r="12" fill="currentColor" />
+                          <text x="5.2" y="16.6" fill="white" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700">iD</text>
+                        </svg>
                       </a>
                       <a
                         href="https://x.com/Hakikeioak"
